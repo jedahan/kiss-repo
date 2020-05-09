@@ -1,0 +1,3 @@
+talon: metapackage for my laptop
+
+kiss-remove-orphans: dangerous script that removes all orphans not in your `$HOSTNAME` package

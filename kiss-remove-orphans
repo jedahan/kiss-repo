@@ -1,0 +1,4 @@
+exit 1
+while kiss orphans | grep -qv $HOSTNAME; do
+  kiss remove `kiss orphans | grep -v $HOSTNAME | tr '\n' ' '`
+done
