@@ -1,5 +1,6 @@
 alacritty
 bash
+cmake
 dhcpcd
 eiwd
 fd
@@ -7,6 +8,7 @@ firefox-bin
 fzf
 gnupg1
 go
+kiss-find
 linux
 linux-headers
 mpv
@@ -21,4 +23,5 @@ sudo
 sway
 terminus-font
 wayland-protocols
+wpa_supplicant
 zsh
