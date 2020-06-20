@@ -2,3 +2,6 @@
 
 mkdir -p "$1/usr/bin"
 cp croc "$1/usr/bin/"
+
+mkdir -p "$1/usr/share/doc/croc"
+cp README.md "$1/usr/share/doc/croc/"
