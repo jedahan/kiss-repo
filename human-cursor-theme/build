@@ -1,0 +1,10 @@
+#!/bin/sh -e
+
+python setup.py install \
+    --prefix="/usr" \
+    --root="$1" \
+    --optimize=1
+
+cp -f index.theme "$1/usr/share/icons/Human/index.theme"
+
+rm -rf "$1/usr/lib"
