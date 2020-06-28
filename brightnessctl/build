@@ -1,0 +1,7 @@
+#!/bin/sh -e
+
+make
+make DESTDIR="$1" install
+
+mkdir -p "$1/usr/share/licenses/brightnessctl"
+install -m 0644 LICENSE "$1/usr/share/licenses/brightnessctl/"
