@@ -26,6 +26,7 @@ mkdir -p "$1/usr/src"
 ln -sv "/usr/lib/modules/$kernver/build" "$1/usr/src/linux"
 
 echo "Installing kernel"
+mkdir -p "$1/boot"
 make install INSTALL_PATH="$1/boot"
 cp "$1/boot/vmlinuz" "$1/boot/vmlinuz-$kernver"
 cp "$1/boot/System.map" "$1/boot/System.map-$kernver"
