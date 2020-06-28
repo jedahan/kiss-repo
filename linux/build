@@ -5,12 +5,8 @@ patch -p1 < no-perl.patch
 # Set the kernel up for success!
 scripts/setlocalversion --save-scmversion
 cp config .config
-
-make \
-    olddefconfig
-
-make \
-    kernelrelease > version
+make olddefconfig
+make kernelrelease > version
 
 # Useful variables
 kernver="$(cat version)"
@@ -48,8 +44,12 @@ chmod -Rc u=rwX,go=rX "$1"
 
 echo "Removing cruft..."
 rm -r "$builddir/Documentation"
-find -L "$builddir" -type l             -exec rm -rf {} +
-find    "$builddir" -type f -name "*.o" -exec rm -rf {} +
+find -L "$builddir" -type l             -exec rm -rf {} \;
+find    "$builddir" -type f -name "*.o" -exec rm -rf {} \;
+
+for arch in alpha,arc,arm,arm64,c6x,csky,h8300,hexagon,ia64,m68k,microblaze,mips,nds32,nios2,openrisc,parisc,powerpc,riscv,s390,sh,sparc,um,unicore32,xtensa; do 
+    rm -rf $arch
+done
 
 echo "Laying trap..."
 mkdir -p "$1/usr/src"
