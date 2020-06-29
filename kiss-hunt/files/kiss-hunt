@@ -2,14 +2,11 @@
 # Search for packages across every known repository
 # Requires tealdeer (install with cargo install tealdeer)
 
-err() {
-  echo "$*" && exit
-}
+if [ $# -lt 1 ]; then
+  echo "requires something to search for" >2
+  exit
+fi
 
-tldr_dir=~/.cache/tealdeer/tldr-master
-test -d "$tldr_dir" || err "requires tldr-pages in $tldr_dir"
-[ $# -lt 1 ] && err "requires something to search for"
-
-for p in ~/.cache/tealdeer/tldr-master/pages/linux/*; do
-  echo -n "$(basename $p): "; awk 'NR==3' $p
-done | grep $1
+for page in /var/cache/kiss-hunt/tldr-master/pages/linux/*; do
+  echo -n "$(basename ${page%%.md}): "; awk 'NR==3' $p
+done | grep $1 2>/dev/null
