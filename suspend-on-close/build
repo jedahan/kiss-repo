@@ -1,0 +1,5 @@
+#!/bin/sh -e
+
+mkdir -p "$1/etc/acpi/events"
+cp lid "$1/etc/acpi/events"
+cp suspend_on_close.sh "$1/etc/acpi"

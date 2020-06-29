@@ -1,0 +1,2 @@
+event=button/lid
+action=/etc/acpi/suspend_on_close.sh "%e"
