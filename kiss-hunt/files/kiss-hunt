@@ -1,0 +1,15 @@
+#!/bin/bash -e
+# Search for packages across every known repository
+# Requires tealdeer (install with cargo install tealdeer)
+
+err() {
+  echo "$*" && exit
+}
+
+tldr_dir=~/.cache/tealdeer/tldr-master
+test -d "$tldr_dir" || err "requires tldr-pages in $tldr_dir"
+[ $# -lt 1 ] && err "requires something to search for"
+
+for p in ~/.cache/tealdeer/tldr-master/pages/linux/*; do
+  echo -n "$(basename $p): "; awk 'NR==3' $p
+done | grep $1
