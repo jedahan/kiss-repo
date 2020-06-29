@@ -1,4 +1,4 @@
-#!/bin/bash -e
+#!/bin/zsh -e
 # Search for packages across every known repository
 # Requires tealdeer (install with cargo install tealdeer)
 
@@ -7,6 +7,8 @@ if [ $# -lt 1 ]; then
   exit
 fi
 
-for page in /var/cache/kiss-hunt/tldr-master/pages/linux/*; do
-  echo -n "$(basename ${page%%.md}): "; awk 'NR==3' $p
+for page in /var/cache/kiss-hunt/linux/*; do
+  package=$(basename ${page%%.md})
+  kiss search $package 2>/dev/null || continue 
+  echo -n "$package:"; awk 'NR==3' $page | cut -d'>' -f2-
 done | grep $1 2>/dev/null
