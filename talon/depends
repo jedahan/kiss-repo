@@ -4,7 +4,10 @@ cmake
 croc
 dhcpcd
 eiwd
+exa
 fd
+file
+firefox
 fzf
 gnupg1
 go
@@ -20,10 +23,13 @@ osh
 pfetch
 ripgrep
 rust
+strace
 sudo
 suspend-on-close
 sway
 terminus-font
+tiv
 wayland-protocols
+wl-clipboard
 wpa_supplicant
 zsh
