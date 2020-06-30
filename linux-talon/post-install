@@ -1,5 +1,3 @@
 #!/bin/sh -e
 
-cat << EOF
-Be sure to update your bootloader entry.
-EOF
+test -f /etc/grub/grub.cfg && grub-mkconfig -o /etc/grub/grub.cfg
