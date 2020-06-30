@@ -1,3 +1,22 @@
-talon: metapackage for my laptop
+brightnessctl: a program to read and control device brightness 
+
+croc: easily and securely send things from one computer to another
+
+gsettings-desktop-schemas: needed to set gtk+ settings correctly in wayland
+
+human-cursor-theme: nice cursor theme from ubuntu
+
+kiss-hunt: search package descriptions (falling back to tldr-pages) across repositories
 
 kiss-remove-orphans: dangerous script that removes all orphans not in your `$HOSTNAME` package
+
+linux-defconfig: untested, default kernel
+
+linux-talon: micro's laptop kernel
+
+linux-headers-talon: headers for linux-talon
+
+suspend-on-close: sets up suspend on laptop lid close
+
+talon: micro's laptop packages
+

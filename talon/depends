@@ -14,7 +14,7 @@ go
 kiss-find
 kiss-hunt
 linux-talon
-linux-headers
+linux-headers-talon
 mpv
 neovim
 nodejs

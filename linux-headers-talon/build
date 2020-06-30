@@ -1,8 +1,5 @@
 #!/bin/sh -e
 
-# Set the kernel up for success!
-scripts/setlocalversion --save-scmversion
-
 cp config .config
 
 make olddefconfig
