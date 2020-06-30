@@ -1,0 +1,13 @@
+#!/bin/zsh -e
+# Build and install with @repo/package
+
+err() { printf "$@" >&2 && exit }
+echo "$1" | grep -q '@' >/dev/null || err "no @repo specified"
+
+repo=$(echo "$1" | cut -d'@' -f2 | cut -d'/' -f1)
+fullpath=$(echo $KISS_PATH | tr ':' '\n' | grep -e "$repo\$")
+name=$(echo "$1" | cut -d'/' -f2)
+
+test "$fullpath" && pushd $_
+test -d "$name" && cd $_ || err "no $name found in @$repo ($fullpath)"
+kiss b && kiss i
