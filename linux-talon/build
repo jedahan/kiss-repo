@@ -23,3 +23,7 @@ if test -d /boot/efi; then
   mkdir -p "$1/boot/efi"
   cp "$1/boot/vmlinuz-$2" "$1/boot/efi/"
 fi
+
+if test /etc/grub/grub.cfg; then
+  grub-mkconfig -o /etc/grub/grub.cfg
+fi
