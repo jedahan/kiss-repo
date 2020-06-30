@@ -1,7 +1,7 @@
 #!/bin/sh -e
 
 patch -p1 < no-perl.patch
-mkdir -p "$1/boot/efi"
+mkdir -p "$1/boot"
 
 cp config .config
 make olddefconfig
@@ -18,4 +18,8 @@ make \
 
 mv "$1/boot/vmlinuz" "$1/boot/vmlinuz-$2"
 mv "$1/boot/System.map" "$1/boot/System.map-$2"
-cp "$1/boot/vmlinuz-$2" "$1/boot/efi/"
+
+if test -d /boot/efi; then
+  mkdir -p "$1/boot/efi"
+  cp "$1/boot/vmlinuz-$2" "$1/boot/efi/"
+fi
