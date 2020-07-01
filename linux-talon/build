@@ -16,6 +16,7 @@ make \
   install \
   INSTALL_PATH="$1/boot"
 
+ls -al "$1/boot"
 mv "$1/boot/vmlinuz" "$1/boot/vmlinuz-$2"
 mv "$1/boot/System.map" "$1/boot/System.map-$2"
-test -d /boot/efi && cp "/boot/vmlinuz-$2" "$1/boot/efi/"
+test -d /boot/efi && cp "$1/boot/vmlinuz-$2" "$1/boot/efi/"
