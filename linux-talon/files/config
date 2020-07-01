@@ -3843,7 +3843,7 @@ CONFIG_INTEL_IOMMU_FLOPPY_WA=y
 # CONFIG_PHY_INTEL_EMMC is not set
 # end of PHY Subsystem
 
-# CONFIG_POWERCAP is not set
+CONFIG_POWERCAP=y
 # CONFIG_MCB is not set
 
 #
