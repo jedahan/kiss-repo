@@ -20,13 +20,13 @@ linux-headers-talon
 mpv
 neovim
 nodejs
+opendoas
 openssh
 osh
 pfetch
 ripgrep
 rust
 strace
-sudo
 suspend-on-close
 sway
 terminus-font
