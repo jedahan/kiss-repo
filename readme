@@ -8,6 +8,8 @@ human-cursor-theme: nice cursor theme from ubuntu
 
 kiss-bi: kiss bi @repo/package - hacky script to specify a package from a repo
 
+kiss-describe: descibe a package, falling back to tldr if a description file is not found
+
 kiss-hunt: search package descriptions (falling back to tldr-pages) across repositories
 
 kiss-remove-orphans: dangerous script that removes all orphans not in your `$HOSTNAME` package
