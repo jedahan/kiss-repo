@@ -12,6 +12,8 @@ kiss-hunt: search package descriptions (falling back to tldr-pages) across repos
 
 kiss-remove-orphans: dangerous script that removes all orphans not in your `$HOSTNAME` package
 
+kiss-weekly: show packages updated in the last week
+
 linux-defconfig: untested, default kernel
 
 linux-talon: micro's laptop kernel

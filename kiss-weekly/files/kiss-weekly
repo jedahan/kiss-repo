@@ -1,0 +1,23 @@
+#!/bin/zsh
+# Show all the new packages added to repos this week
+
+new_packages=$(echo $KISS_PATH | tr ':' '\n' | xargs -I _ \
+  git -C _ --no-pager \
+    log \
+    --oneline \
+    --since="1 week ago" \
+    --regexp-ignore-case \
+    --grep 'new package' \
+  | cut -d':' -f1 \
+  | cut -d' ' -f2 \
+  | tr -d ',' \
+  | sort \
+  | uniq \
+  | tr ' ' '\n')
+
+for package in "${=new_packages}"; do
+  description=$(tldr "$package" 2>/dev/null | head -n2 | tail -n1 | grep -v tldr | cut -d' ' -f3-)
+  printf "%s" "$package"
+  test "$description" && printf ": %s" "$description"
+  printf '\n'
+done
