@@ -16,8 +16,12 @@ new_packages=$(echo $KISS_PATH | tr ':' '\n' | xargs -I _ \
   | tr ' ' '\n')
 
 for package in "${=new_packages}"; do
-  description=$(tldr "$package" 2>/dev/null | head -n2 | tail -n1 | grep -v tldr | cut -d' ' -f3-)
+  package_path=$(kiss s $package 2>/dev/null | head -n1)
+  test -f $package_path/description && description=$(head -n1 $package_path/description)
+  test "$description" || description=$(tldr "$package" 2>/dev/null | head -n2 | tail -n1 | grep -v tldr | cut -d' ' -f3-)
   printf "%s" "$package"
   test "$description" && printf ": %s" "$description"
   printf '\n'
+  unset description_file
+  unset description
 done
