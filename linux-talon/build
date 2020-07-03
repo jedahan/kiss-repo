@@ -1,6 +1,5 @@
 #!/bin/sh -e
 
-patch -p1 < no-perl.patch
 mkdir -p "$1/boot"
 
 cp config .config
