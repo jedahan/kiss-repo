@@ -1,3 +1,9 @@
+# repositories
+
+repo-community: the official kiss community repository
+
+# packages
+
 brightnessctl: a program to read and control device brightness 
 
 croc: easily and securely send things from one computer to another
@@ -21,6 +27,7 @@ linux-defconfig: untested, default kernel
 linux-talon: micro's laptop kernel
 
 linux-headers-talon: headers for linux-talon
+
 
 suspend-on-close: sets up suspend on laptop lid close
 

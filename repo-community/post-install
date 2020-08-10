@@ -1,0 +1,10 @@
+#!/bin/sh
+
+cat <<EOF
+
+To start using the community repo,
+
+    source /etc/profile.d/kiss-repo-community.sh
+
+
+EOF
