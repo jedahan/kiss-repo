@@ -1,3 +1,3 @@
-files/home/micro/.profile
+files/etc/fstab
 files/home/micro/.gitconfig
-files/home/etc/fstab
+files/home/micro/.profile
