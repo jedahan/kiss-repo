@@ -1,0 +1,11 @@
+# /etc/fstab: static file system information
+
+# <filesystem> <dir> <type> <options> <dump> <pass>
+
+PARTUUID=267248cf-450f-4722-964b-b0fafd93085f none swap sw 0 0
+PARTUUID=514b067a-70df-4b0c-8189-83d91287cc1f /boot ext4 defaults 0 1
+PARTUUID=30ca6ac6-19c8-48cf-a29f-289fb688c0ef /boot/efi vfat umask=0077 0 1
+PARTUUID=b1b19b93-0968-4f6a-8382-7e5abcd8362c / ext4 errors=remount-ro 0 1
+PARTUUID=637b8975-f4a0-4b43-b2ec-cd37255ef9ef /home ext4 defaults 0 2
+PARTUUID=3f365e61-1148-4b5f-a788-eb51ff954ac5 /mnt/debian ext4 defaults 0 2
+tmpfs /tmp tmpfs defaults,nosuid,nodev 0 0

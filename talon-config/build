@@ -1,0 +1,6 @@
+#!/bin/sh -e
+
+echo 'adduser micro'
+install -D etc/fstab "$1/etc/fstab"
+install -D -o micro -g micro home/micro/.profile "$1/home/micro/.profile"
+install -D -o micro -g micro home/micro/.gitconfig "$1/home/micro/.gitconfig"
