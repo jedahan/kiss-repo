@@ -12,6 +12,10 @@ gsettings-desktop-schemas: needed to set gtk+ settings correctly in wayland
 
 human-cursor-theme: nice cursor theme from ubuntu
 
+suspend-on-close: sets up suspend on laptop lid close
+
+# kiss commands
+
 kiss-bi: kiss bi @repo/package - hacky script to specify a package from a repo
 
 kiss-describe: descibe a package, falling back to tldr if a description file is not found
@@ -22,14 +26,15 @@ kiss-remove-orphans: dangerous script that removes all orphans not in your `$HOS
 
 kiss-weekly: show packages updated in the last week
 
-linux-defconfig: untested, default kernel
+# kernels
 
-linux-talon: micro's laptop kernel
+linux-talyn: micro's laptop kernel
 
-linux-headers-talon: headers for linux-talon
+linux-headers-talyn: headers for linux-talon
 
+# bootstrapping
 
-suspend-on-close: sets up suspend on laptop lid close
+talyn-config: etcfiles and repositories needed to bootstrap
 
-talon: micro's laptop packages
+talyn: micro's laptop packages
 
