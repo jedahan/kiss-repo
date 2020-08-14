@@ -1,0 +1,3 @@
+#!/bin/sh
+
+echo To start using the fonts repo, `sh -l`

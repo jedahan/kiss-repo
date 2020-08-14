@@ -1,8 +1,7 @@
 #!/bin/sh -e
 
-KISS_REPO=/var/db/kiss/repo
-mkdir -p "$1"/$KISS_REPO
-cp -r . "$1"/"$KISS_REPO"/community
-mkdir -p "$1"/etc/profile.d
-printf 'export KISS_PATH=$KISS_PATH:%s\n' "$KISS_REPO"/community > "$1"/etc/profile.d/kiss-repo-community.sh
-
+REPOS=/var/db/kiss/repos
+mkdir -p "$1/$REPOS"
+cp -r . "$1/$REPOS/community"
+mkdir -p "$1/etc/profile.d"
+printf 'export KISS_PATH=$KISS_PATH:%s\n' "$REPOS/community" > "$1/etc/profile.d/kiss-repo-community.sh"

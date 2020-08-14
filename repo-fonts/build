@@ -1,0 +1,8 @@
+#!/bin/sh -e
+
+REPOS=/var/db/kiss/repos
+mkdir -p "$1/$REPOS"
+cp -r . "$1/$REPOS/fonts"
+mkdir -p "$1/etc/profile.d"
+printf 'export KISS_PATH=$KISS_PATH:%s\n' $REPOS/fonts > "$1/etc/profile.d/kiss-repo-fonts.sh"
+
