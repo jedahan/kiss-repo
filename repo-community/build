@@ -2,7 +2,7 @@
 
 repoinstalldir="$1/var/db/kiss/repos"
 mkdir -p "$repoinstalldir"
-git clone --recursive git+https://github.com/kisslinux/community.git "$repoinstalldir/community"
+git clone --recursive https://github.com/kisslinux/community.git "$repoinstalldir/community"
 
 mkdir -p "$1/etc/profile.d"
 printf 'export KISS_PATH=$KISS_PATH:/var/db/kiss/repos/community/community\n' > "$1/etc/profile.d/kiss_repo-community.sh"
