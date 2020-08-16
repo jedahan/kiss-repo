@@ -9,6 +9,7 @@ addrepo() {
 
   mkdir -p "$installdir/$reposdir"
   cp -r . "$installdir/$reposdir/$name"
+  rm -f "$installdir/addrepo" "$installdir/.kiss.build"
   mkdir -p "$installdir/etc/profile.d"
   printf 'echo $KISS_PATH | grep -q %s || export KISS_PATH=$KISS_PATH:%s/%s\n' "$name" "$reposdir" "$name" \
     > "$installdir/etc/profile.d/kiss_repo-$name.sh"
