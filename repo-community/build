@@ -1,4 +1,4 @@
 #!/bin/sh -e
 
-command -v addrepo 2>/dev/null || . addrepo
+command -v addrepo 2>/dev/null || . ./addrepo
 addrepo "$1" "$2" /var/db/kiss/repos community
