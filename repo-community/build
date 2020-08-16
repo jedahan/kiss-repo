@@ -1,7 +1,4 @@
 #!/bin/sh -e
 
-REPOS=/var/db/kiss/repos
-mkdir -p "$1/$REPOS"
-cp -r . "$1/$REPOS/community"
-mkdir -p "$1/etc/profile.d"
-printf 'export KISS_PATH=$KISS_PATH:%s\n' "$REPOS/community" > "$1/etc/profile.d/kiss-repo-community.sh"
+command -v addrepo 2>/dev/null || . addrepo
+addrepo "$1" "$2" /var/db/kiss/repos community

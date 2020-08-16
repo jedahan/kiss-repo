@@ -1,0 +1,15 @@
+#!/bin/sh -e
+
+# utility for adding repositories
+addrepo() {
+  installdir=$1
+  #version=$2
+  reposdir=$3
+  name=$4
+
+  mkdir -p "$installdir/$reposdir"
+  cp -r . "$installdir/$reposdir/$name"
+  mkdir -p "$installdir/etc/profile.d"
+  printf 'echo $KISS_PATH | grep -q %s || export KISS_PATH=$KISS_PATH:%s/%s\n' "$name" "$reposdir" "$name" \
+    > "$installdir/etc/profile.d/kiss_repo-$name.sh"
+}
