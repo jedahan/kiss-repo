@@ -1,6 +1,8 @@
 # repositories
 
-repo-community: the official kiss community repository
+repo-community: the community repository
+
+repo-fonts: a repository for font packages
 
 # packages
 
