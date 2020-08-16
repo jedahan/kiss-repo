@@ -1,4 +1,5 @@
 #!/bin/sh -e
 
-command -v addrepo 2>/dev/null || . ./addrepo
-addrepo "$1" "$2" /var/db/kiss/repos fonts
+git clone --recursive git+https://github.com/Himmalerin/kiss-fonts.git /var/db/kiss/repos/fonts
+mkdir -p "$1/etc/profile.d"
+printf 'export KISS_PATH=$KISS_PATH:/var/db/kiss/repos/fonts/kiss-fonts\n' > "$1/etc/profile.d/kiss_repo-fonts.sh"
