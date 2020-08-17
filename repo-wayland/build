@@ -2,8 +2,9 @@
 
 repos="/var/db/kiss/repos"
 repo="$repos/wayland"
+uri="https://github.com/Himmalerin/kiss-wayland.git"
 mkdir -p "$1/$repos"
-git clone --recursive https://github.com/Himmalerin/kiss-wayland.git "$1/$repo"
+git clone --recursive "$uri" "$1/$repo"
 
 mkdir -p "$1/etc/profile.d"
-printf 'export KISS_PATH=$KISS_PATH:%s/kiss-wayland\n' "$repo" > "$1/etc/profile.d/kiss_repo-wayland.sh"
+printf 'export KISS_PATH=%s/kiss-wayland:$KISS_PATH\n' "$repo" > "$1/etc/profile.d/kiss_repo-wayland.sh"

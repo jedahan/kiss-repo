@@ -1,8 +1,10 @@
 #!/bin/sh -e
 
-repoinstalldir="$1/var/db/kiss/repos"
-mkdir -p "$repoinstalldir"
-git clone --recursive https://github.com/Himmalerin/kiss-fonts.git "$repoinstalldir/fonts"
+repos="/var/db/kiss/repos"
+repo="$repos/fonts"
+uri="https://github.com/Himmalerin/kiss-fonts.git"
+mkdir -p "$1/$repos"
+git clone --recursive "$uri" "$1/$repo"
 
 mkdir -p "$1/etc/profile.d"
-printf 'export KISS_PATH=$KISS_PATH:/var/db/kiss/repos/fonts/kiss-fonts\n' > "$1/etc/profile.d/kiss_repo-fonts.sh"
+printf 'export KISS_PATH=%s/kiss-fonts:$KISS_PATH\n' "$repo" > "$1/etc/profile.d/kiss_repo-fonts.sh"
