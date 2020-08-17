@@ -1,9 +1,13 @@
 #!/bin/sh -e
 
 mkdir -p "$1/mnt/debain"
-pwd
 install -D fstab "$1/etc/fstab"
 
+mkdir -p /var/db/kiss/repos
+git clone https://github.com/jedahan/kiss-repo /var/db/kiss/repos/jedahan
+
 adduser micro
-install -D -o micro -g micro .profile "$1/home/micro/.profile"
 install -D -o micro -g micro .gitconfig "$1/home/micro/.gitconfig"
+
+install -D -o micro -g micro .profile "$1/home/micro/.profile"
+printf 'export MAKEFLAGS="-j%s"' "$(nproc)" >> "$1/home/micro/.profile"
