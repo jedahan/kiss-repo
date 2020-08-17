@@ -1,8 +1,9 @@
 #!/bin/sh -e
 
-repoinstalldir="$1/var/db/kiss/repos"
-mkdir -p "$repoinstalldir"
-git clone --recursive https://github.com/Himmalerin/kiss-wayland.git "$repoinstalldir/wayland"
+repos="/var/db/kiss/repos"
+repo="$repos/wayland"
+mkdir -p "$1/$repos"
+git clone --recursive https://github.com/Himmalerin/kiss-wayland.git "$1/$repo"
 
 mkdir -p "$1/etc/profile.d"
-printf 'export KISS_PATH=$KISS_PATH:/var/db/kiss/repos/fonts/kiss-wayland\n' > "$1/etc/profile.d/kiss_repo-wayland.sh"
+printf 'export KISS_PATH=$KISS_PATH:%s/kiss-wayland\n' "$repo" > "$1/etc/profile.d/kiss_repo-wayland.sh"
