@@ -4,6 +4,8 @@ repo-community: the community repository
 
 repo-fonts: a repository for font packages
 
+repo-wayland: a repository for wayland pacakges
+
 # packages
 
 brightnessctl: a program to read and control device brightness 

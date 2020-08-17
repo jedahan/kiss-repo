@@ -1,0 +1,3 @@
+#!/bin/sh
+
+printf 'To start using the wayland repo, `%s`\n' 'sh -l'
