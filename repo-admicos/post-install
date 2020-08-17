@@ -1,0 +1,3 @@
+#!/bin/sh
+
+printf "To start using admicos' custom repo, `%s`\n" 'exec sh -l'
