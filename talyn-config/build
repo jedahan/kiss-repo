@@ -2,6 +2,8 @@
 
 mkdir -p "$1/mnt/debain"
 install -D fstab "$1/etc/fstab"
+install -D hosts "$1/etc/hosts"
+install -D hostname "$1/etc/hostname"
 
 mkdir -p /var/db/kiss/repos
 git clone https://github.com/jedahan/kiss-repo /var/db/kiss/repos/jedahan

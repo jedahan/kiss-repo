@@ -1,0 +1,5 @@
+# /etc/hosts: static lookup table for host names
+
+#ip-addr  hostname.domain.org hostname
+127.0.0.1 talyn.localdomain   talyn
+::1       talyn.localdomain	  talyn ip6-localhost
