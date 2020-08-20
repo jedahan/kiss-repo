@@ -8,12 +8,10 @@ fd
 gnupg1
 kiss-find
 linux-headers-talyn
-linux-talyn
 man-pages
 mandoc
 neovim
 nodejs
-openresolv
 ripgrep
 sudo
 sway
