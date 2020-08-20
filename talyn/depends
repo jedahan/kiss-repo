@@ -2,6 +2,8 @@ alsa-utils
 baseinit
 bash
 dhcpcd
+dosfstools
+e2fsprogs
 eiwd
 exa
 fd
