@@ -1,6 +1,6 @@
 #!/bin/sh -e
 
-mkdir -p "$1/mnt/debain"
+mkdir -p "$1/mnt/debian"
 install -D fstab "$1/etc/fstab"
 install -D hosts "$1/etc/hosts"
 install -D hostname "$1/etc/hostname"
