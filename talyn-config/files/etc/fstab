@@ -9,6 +9,6 @@ LABEL=home /home ext4  defaults 0 2
 LABEL=debian /mnt/debian ext4 defaults 0 2
 
 PARTUUID=b1b19b93-0968-4f6a-8382-7e5abcd8362c / ext4 errors=remount-ro 0 1
-PARTUUID=30ca6ac6-19c8-48cf-a29f-289fb688c0ef /boot/efi vfat umask=0077 0 1
+UUID=4B56-3901 /boot/efi vfat umask=0077 0 1
 
 tmpfs /tmp tmpfs defaults,nosuid,nodev 0 0
