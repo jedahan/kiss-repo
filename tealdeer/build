@@ -1,0 +1,3 @@
+#!/bin/sh -e
+
+install -Dm755 tldr-linux-x86_64-musl "$1/usr/bin/tldr"
