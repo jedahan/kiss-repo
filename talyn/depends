@@ -15,4 +15,5 @@ nodejs
 ripgrep
 sudo
 sway
+tzdata
 zsh
