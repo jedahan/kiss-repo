@@ -1,6 +1,7 @@
 alsa-utils
 baseinit
 bash
+brightnessctl
 dhcpcd
 dosfstools
 e2fsprogs
@@ -13,11 +14,14 @@ kiss-find
 linux-headers-talyn
 man-pages
 mandoc
+mpv
 neovim
 nodejs
 ripgrep
 sudo
 sway
+suspend-on-close
 tiny
 tzdata
+zr
 zsh
