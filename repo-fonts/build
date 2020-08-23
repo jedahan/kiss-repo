@@ -1,6 +1,6 @@
 #!/bin/sh -e
 
-repos="/var/db/kiss/repos"
+repos="${KISS_REPOSITORY_PATH:-/var/db/kiss/repos}"
 repo="$repos/fonts"
 uri="https://github.com/Himmalerin/kiss-fonts.git"
 mkdir -p "$1/$repos"

@@ -1,6 +1,6 @@
 #!/bin/sh -e
 
-repos="/var/db/kiss/repos"
+repos="${KISS_REPOSITORY_PATH:-/var/db/kiss/repos}"
 repo="$repos/community"
 uri="https://github.com/kisslinux/community.git"
 mkdir -p "$1/$repos"
