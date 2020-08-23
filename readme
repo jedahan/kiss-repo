@@ -1,5 +1,7 @@
 # repositories
 
+repo-cemkeylan: cemkeylan's personal repository
+
 repo-community: the community repository
 
 repo-fonts: a repository for font packages
@@ -21,6 +23,12 @@ suspend-on-close: sets up suspend on laptop lid close
 tealdeer: simplified, example based community man pages (tldr)
 
 tiny: a console irc client
+
+# fonts
+
+inconsolata-nerd-font: inconsolata patched with nerd font
+
+hack-nerd-font: hack patched with nerd font
 
 # forks
 
