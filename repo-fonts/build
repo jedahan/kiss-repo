@@ -7,4 +7,4 @@ mkdir -p "$1/$repos"
 git clone --recursive "$uri" "$1/$repo"
 
 mkdir -p "$1/etc/profile.d"
-printf 'export KISS_PATH=%s/kiss-fonts:$KISS_PATH\n' "$repo" > "$1/etc/profile.d/kiss_repo-fonts.sh"
+printf "export KISS_PATH=%s/kiss-fonts:\$KISS_PATH\n" "$repo" > "$1/etc/profile.d/kiss_repo-fonts.sh"
