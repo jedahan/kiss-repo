@@ -1,0 +1,3 @@
+#!/bin/sh
+
+printf 'To start using the cemkeylans personal repo, `%s`\n' 'sh -l'
