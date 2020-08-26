@@ -8,12 +8,11 @@ install -D hostname "$1/etc/hostname"
 test -d /var/db/kiss/repos || mkdir -p "$1/var/db/kiss/repos"
 test -d /var/db/kiss/repos/jedahan || git clone https://github.com/jedahan/kiss-repo /var/db/kiss/repos/jedahan
 
-grep -q '^micro:' /etc/shadow || adduser micro
+if ! id micro > /dev/null 2>&1; then adduser micro; fi
+
 install -D -o micro -g micro .gitconfig "$1/home/micro/.gitconfig"
 
 install -D -o micro -g micro .profile "$1/home/micro/.profile"
 printf 'export MAKEFLAGS="-j%s"\n' "$(nproc)" >> "$1/home/micro/.profile"
 
-add-shell /usr/bin/zsh
-
-echo "todo: set up timezone correctly"
+add-shell /usr/bin/zsh || echo 'please run add-shell /usr/bin/zsh'
