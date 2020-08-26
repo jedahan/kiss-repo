@@ -20,6 +20,8 @@ gsettings-desktop-schemas: needed to set gtk+ settings correctly in wayland
 
 human-cursor-theme: nice cursor theme from ubuntu
 
+nodejs-lts: lts version of nodejs
+
 suspend-on-close: sets up suspend on laptop lid close
 
 tealdeer: simplified, example based community man pages (tldr)
