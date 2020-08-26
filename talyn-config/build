@@ -8,7 +8,15 @@ install -D hostname "$1/etc/hostname"
 test -d /var/db/kiss/repos || mkdir -p "$1/var/db/kiss/repos"
 test -d /var/db/kiss/repos/jedahan || git clone https://github.com/jedahan/kiss-repo /var/db/kiss/repos/jedahan
 
-if ! id micro > /dev/null 2>&1; then adduser micro; fi
+if ! id micro > /dev/null 2>&1; then
+  adduser micro
+  adduser micro users
+  adduser micro wheel
+  adduser micro input
+  adduser micro network
+  adduser micro audio
+  adduser micro video
+fi
 
 install -D -o micro -g micro .gitconfig "$1/home/micro/.gitconfig"
 
