@@ -28,6 +28,8 @@ tealdeer: simplified, example based community man pages (tldr)
 
 tiny: a console irc client
 
+xlsclients: list applications running on an x11 display
+
 # fonts
 
 inconsolata-nerd-font: inconsolata patched with nerd font
@@ -61,4 +63,3 @@ linux-headers-talyn: headers for linux-talon
 talyn-config: etcfiles and repositories needed to bootstrap
 
 talyn: micro's laptop packages
-

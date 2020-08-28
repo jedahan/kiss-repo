@@ -1,0 +1,4 @@
+libXau
+libxcb
+xorg-util-macros make
+xorgproto make
