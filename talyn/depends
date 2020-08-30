@@ -26,6 +26,7 @@ mandoc
 mpv
 neovim
 nodejs
+openssh
 ripgrep
 sls
 suspend-on-close
