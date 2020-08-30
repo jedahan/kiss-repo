@@ -1,0 +1,10 @@
+#!/bin/sh -e
+
+repos="${KISS_REPOSITORY_PATH:-/var/db/kiss/repos}"
+repo="$repos/muevoid"
+uri="https://github.com/muevoid/kiss-mue.git"
+mkdir -p "$1/$repos"
+git clone --recursive "$uri" "$1/$repo"
+
+mkdir -p "$1/etc/profile.d"
+printf "export KISS_PATH=%s:\$KISS_PATH\n" "$repo" > "$1/etc/profile.d/kiss_repo-muevoid.sh"
