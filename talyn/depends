@@ -28,6 +28,7 @@ neovim
 nodejs
 openssh
 ripgrep
+rust
 sls
 suspend-on-close
 sway
