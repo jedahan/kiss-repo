@@ -2,6 +2,7 @@ alsa-utils
 baseinit
 bash
 brightnessctl
+croc
 dhcpcd
 dosfstools
 e2fsprogs
