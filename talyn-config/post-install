@@ -1,5 +1,6 @@
 #!/bin/sh -e
 
-printf make sure to set your timezone correctly, see
+printf 'make sure to set your timezone correctly, see
 
     kiss help install
+'
