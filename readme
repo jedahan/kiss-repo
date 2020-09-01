@@ -1,17 +1,3 @@
-# repositories
-
-repo-admicos: admicos's personal repository
-
-repo-cemkeylan: cemkeylan's personal repository
-
-repo-community: the community repository
-
-repo-eudaldgr: libs from eudaldgr's repo
-
-repo-fonts: a repository for font packages
-
-repo-wayland: a repository for wayland pacakges
-
 # packages
 
 brightnessctl: a program to read and control device brightness 
