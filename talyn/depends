@@ -1,3 +1,4 @@
+adwaita-icon-theme
 alsa-utils
 baseinit
 bash
@@ -16,6 +17,7 @@ fzf
 gnupg1
 grim
 hack-nerd-font
+hicolor-icon-theme
 human-cursor-theme
 inconsolata-nerd-fonts
 kiss-find
