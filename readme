@@ -28,6 +28,8 @@ hack-nerd-font: hack patched with nerd font
 
 git: with git-add --interactive support (requires perl)
 
+openvpn: enable mbedtls
+
 # kiss commands
 
 kiss-bi: kiss bi @repo/package - hacky script to specify a package from a repo
