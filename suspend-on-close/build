@@ -1,5 +1,4 @@
 #!/bin/sh -e
 
-mkdir -p "$1/etc/acpi/events"
-cp lid "$1/etc/acpi/events"
-cp suspend_on_close.sh "$1/etc/acpi"
+install -Dm755 -t "$1/etc/acpi/events" lid
+install -Dm755 -t "$1/etc/acpi" suspend_on_close.sh

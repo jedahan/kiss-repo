@@ -1,7 +1,3 @@
 #!/bin/sh -e
 
-mkdir -p "$1/usr/bin"
-cp kiss-hunt "$1/usr/bin"
-
-mkdir -p "$1/var/cache/kiss-hunt"
-cp -r tldr-master/pages/linux "$1/var/cache/kiss-hunt/"
+install -Dm755 -t "$1/usr/bin" kiss-hunt

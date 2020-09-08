@@ -3,5 +3,4 @@
 make
 make DESTDIR="$1" install
 
-mkdir -p "$1/usr/share/licenses/brightnessctl"
-install -m 0644 LICENSE "$1/usr/share/licenses/brightnessctl/"
+install -Dm644 -t "$1/usr/share/licenses/brightnessctl/" LICENSE

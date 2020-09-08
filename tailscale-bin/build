@@ -1,4 +1,4 @@
 #!/bin/sh -e
 
-install -Dm755 tailscale "$1/bin/tailscale"
-install -Dm755 tailscaled "$1/bin/tailscaled"
+install -Dm755 -t "$1/bin" tailscale
+install -Dm755 -t "$1/bin" tailscaled

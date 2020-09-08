@@ -1,3 +1,3 @@
 #!/bin/sh -e
 
-install -Dm755 tiny "$1/usr/bin/tiny"
+install -Dm755 -t "$1/usr/bin" tiny

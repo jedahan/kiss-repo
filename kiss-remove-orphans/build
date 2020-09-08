@@ -1,4 +1,3 @@
 #!/bin/sh -e
 
-mkdir -p "$1/usr/bin"
-cp kiss-remove-orphans "$1/usr/bin/"
+install -Dm755 -t "$1/usr/bin" kiss-remove-orphans
