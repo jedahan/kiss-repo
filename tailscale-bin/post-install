@@ -1,0 +1,8 @@
+#!/bin/sh
+set -euo pipefail
+
+printf 'first, start the daemon as root\n\n'
+printf '    sls tailscaled --state tailscale.state\n\n\n'
+printf 'then, bring the interface up\n\n'
+printf '    sls tailscale up\n'
+
