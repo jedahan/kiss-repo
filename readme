@@ -26,8 +26,6 @@ hack-nerd-font: hack patched with nerd font
 
 # forks
 
-git: with git-add --interactive support (requires perl)
-
 openvpn: enable mbedtls
 
 # kiss commands
