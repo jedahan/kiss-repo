@@ -1,1 +1,1 @@
-linux-talon: laptop kernel that supports efi and grub
+linux-talon: laptop kernel that supports efi, grub, thunderbolt
