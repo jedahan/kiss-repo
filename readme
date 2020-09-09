@@ -24,12 +24,6 @@ inconsolata-nerd-font: inconsolata patched with nerd font
 
 hack-nerd-font: hack patched with nerd font
 
-# forks
-
-mbedtls: enable pkcs11
-
-openvpn: enable mbedtls
-
 # kiss commands
 
 kiss-bi: kiss bi @repo/package - hacky script to specify a package from a repo
