@@ -26,6 +26,8 @@ hack-nerd-font: hack patched with nerd font
 
 # forks
 
+mbedtls: enable pkcs11
+
 openvpn: enable mbedtls
 
 # kiss commands

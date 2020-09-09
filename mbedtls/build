@@ -1,0 +1,17 @@
+#!/bin/sh -e
+
+sed -i include/mbedtls/config.h \
+	-e 's/.*\(#define MBEDTLS_THREADING_C\)/\1/' \
+	-e 's/.*\(#define MBEDTLS_THREADING_PTHREAD\)/\1/'
+
+cmake . \
+		-DCMAKE_BUILD_TYPE="MinSizeRel" \
+		-DCMAKE_INSTALL_PREFIX=/usr \
+		-DCMAKE_VERBOSE_MAKEFILE=ON \
+    -DUSE_PKCS11_HELPER_LIBRARY=ON \
+		-DUSE_SHARED_MBEDTLS_LIBRARY=ON
+make
+
+make DESTDIR="$1" install
+
+
