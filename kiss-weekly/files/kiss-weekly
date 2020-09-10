@@ -1,13 +1,13 @@
 #!/bin/zsh
 # Show all the new packages added to repos this week
 
-new_packages=$(echo $KISS_PATH | tr ':' '\n' | xargs -I _ \
+new_packages=$(echo $KISS_PATH | tr ':' '\n' | grep -v installed | xargs -I _ \
   git -C _ --no-pager \
     log \
     --oneline \
     --since="1 week ago" \
     --regexp-ignore-case \
-    --grep 'new package' \
+    --grep 'new' \
   | cut -d':' -f1 \
   | cut -d' ' -f2 \
   | tr -d ',' \
@@ -17,8 +17,13 @@ new_packages=$(echo $KISS_PATH | tr ':' '\n' | xargs -I _ \
 
 for package in "${=new_packages}"; do
   description=$(kiss-describe $package)
+  pkg=$(kiss search $package 2>/dev/null)
+  test $pkg && mainsource=$(grep -m 1 http $pkg/sources 2>/dev/null | cut -d'/' -f1-5)
   printf "%s" "$package"
   test "$description" && printf ": %s" "$description"
+  test "$mainsource" && printf " ( %s )" "$mainsource"
   printf '\n'
   unset description
+  unset pkg
+  unset mainsource
 done
