@@ -8,6 +8,9 @@ meson \
   -D systemd=false \
   -D consolekit=false \
   -D introspection=false \
+  -D libjcat:man=false \
+  -D libjcat:tests=false \
+  -D libjcat:introspection=false \
   -D gusb:docs=false \
   -D gusb:introspection=false \
   -D gusb:tests=false \
