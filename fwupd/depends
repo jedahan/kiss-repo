@@ -7,3 +7,4 @@ libgudev
 libsoup
 pciutils
 polkit
+python-gobject make
