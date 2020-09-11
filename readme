@@ -4,9 +4,13 @@ brightnessctl: a program to read and control device brightness
 
 croc: easily and securely send things from one computer to another
 
+fwupd: update your firmware
+
 gsettings-desktop-schemas: needed to set gtk+ settings correctly in wayland
 
 human-cursor-theme: nice cursor theme from ubuntu
+
+libxmlb: library for xml binary making, dependency for fwupd
 
 nodejs-lts: lts version of nodejs
 
@@ -25,6 +29,8 @@ inconsolata-nerd-font: inconsolata patched with nerd font
 hack-nerd-font: hack patched with nerd font
 
 # forks
+
+libcap: fix build from community
 
 libressl: downgrade version 3.0.2 for openvpn
 

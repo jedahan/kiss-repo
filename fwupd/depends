@@ -1,0 +1,8 @@
+efivar
+gnutls
+gpgme
+libarchive
+libgudev
+libsoup
+pciutils
+polkit

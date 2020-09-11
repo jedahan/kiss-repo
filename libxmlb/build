@@ -1,0 +1,6 @@
+#!/bin/sh -e
+
+export DESTDIR="$1"
+meson --prefix=/usr -Dgtkdoc=false -Dintrospection=false -Dtests=false build
+ninja -C build
+ninja -C build install

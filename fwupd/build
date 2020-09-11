@@ -1,0 +1,18 @@
+#!/bin/sh -e
+
+export DESTDIR="$1"
+
+meson \
+  --prefix=/usr \
+  -D plugin_flashrom=true \
+  -D systemd=false \
+  -D consolekit=false \
+  -D introspection=false \
+  -D gusb:docs=false \
+  -D gusb:introspection=false \
+  -D gusb:tests=false \
+  -D gusb:vapi=false \
+  . build
+
+ninja -C build
+ninja -C build install
