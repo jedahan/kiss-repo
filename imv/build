@@ -1,7 +1,10 @@
 #!/bin/sh -e
 
-sed -i -e 's/WINDOWS\=.*/WINDOWS\=wayland/' \
-       -e 's/BACKEND_LIBRSVG\=.*/BACKEND_LIBRSVG\=no/' config.mk
+sed -ie '/prog_a2x = find_program/,$d' meson.build
 
-make imv
-install -Dm755 -t "$1"/usr/bin build/imv-wayland
+meson --prefix /usr \
+  -Dwindows=wayland \
+  -Dfreeimage=enabled \
+  -Dlibrsvg=disabled . build
+ninja -C build
+DESTDIR="$1" ninja -C build install

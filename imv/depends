@@ -1,2 +1,4 @@
 wayland-protocols make
 freeimage
+glu
+cmocka
