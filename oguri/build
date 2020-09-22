@@ -1,0 +1,8 @@
+#!/bin/sh -e
+
+export DESTDIR="$1"
+
+meson --prefix=/usr build
+ninja -C build
+ninja -C build install
+install -D -t "$1/usr/bin" -m755 contrib/oguri-swaybg
