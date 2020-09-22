@@ -1,0 +1,7 @@
+#!/bin/sh -e
+
+sed -i -e 's/WINDOWS\=.*/WINDOWS\=wayland/' \
+       -e 's/BACKEND_LIBRSVG\=.*/BACKEND_LIBRSVG\=no/' config.mk
+
+make imv
+install -Dm755 -t "$1"/usr/bin build/imv-wayland
