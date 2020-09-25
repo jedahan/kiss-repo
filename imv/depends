@@ -1,4 +1,5 @@
-wayland-protocols make
+cmocka
 freeimage
 glu
-cmocka
+libnsgif
+wayland-protocols make
