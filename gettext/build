@@ -1,0 +1,26 @@
+#!/bin/sh -e
+
+./configure \
+    --prefix=/usr \
+    --disable-acl \
+    --disable-csharp \
+    --disable-java \
+    --disable-native-java \
+    --disable-libasprintf \
+    --enable-threads=posix \
+    --disable-rpath \
+    --with-xz \
+    --without-emacs \
+    --with-included-glib \
+    --with-included-libcroco \
+    --without-git \
+    --with-included-libxml \
+    --with-included-libunistring \
+    --disable-openmp \
+    --disable-curses \
+    --without-examples \
+    --enable-nls
+
+make
+make DESTDIR="$1" install
+
