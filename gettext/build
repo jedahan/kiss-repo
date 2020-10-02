@@ -24,3 +24,4 @@
 make
 make DESTDIR="$1" install
 
+install -Dm644 -t "$1"/usr/share/gettext gettext-tools/misc/archive.dir.tar.xz
