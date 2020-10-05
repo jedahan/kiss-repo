@@ -1,0 +1,9 @@
+autoconf make
+automake make
+bash make
+gettext make
+libtool make
+libxml2 make
+linux-headers make
+python
+sls make

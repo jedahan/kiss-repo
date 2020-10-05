@@ -1,0 +1,20 @@
+#!/bin/sh -e
+
+patch -p1 < musl-error.patch
+
+./autogen.sh --no-configure
+
+CONFIG_SHELL=/bin/bash \
+./configure \
+  --prefix=/usr \
+  --sysconfdir=/etc \
+  --localstatedir=/var \
+  --disable-python \
+  --disable-static
+
+make
+make DESTDIR="$1" install
+
+#sls unshare \
+#  -m /bin/bash \
+#  -c "source /etc/profile; sls mount --bind /bin/bash /bin/sh; make; echo make DESTDIR=\"$1\" install"
