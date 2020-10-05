@@ -34,6 +34,8 @@ libcap: fix build from community
 
 libressl: downgrade version 3.0.2 for openvpn
 
+pango: enable gobject-introspection
+
 # kiss commands
 
 kiss-bi: kiss bi @repo/package - hacky script to specify a package from a repo
