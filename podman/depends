@@ -1,14 +1,14 @@
+btrfs-progs make
+conmon
+eudev
+git make
+go make
+lvm2
+runc
 #cni-plugins
-#conmon
-lvm2 #device-mapper
+#fuse-overlayfs
+#go-md2man make
 #iptables
 #libseccomp
-#runc
-#slirp4netns
-#fuse-overlayfs
 #skopeo
-
-go make
-git make
-#go-md2man make
-btrfs-progs make
+#slirp4netns
