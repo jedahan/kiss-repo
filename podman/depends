@@ -1,0 +1,14 @@
+#cni-plugins
+#conmon
+lvm2 #device-mapper
+#iptables
+#libseccomp
+#runc
+#slirp4netns
+#fuse-overlayfs
+#skopeo
+
+go make
+git make
+#go-md2man make
+btrfs-progs make

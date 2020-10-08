@@ -1,0 +1,16 @@
+#!/bin/sh -e
+
+export BUILDTAGS='varlink'
+export CGO_CPPFLAGS="${CPPFLAGS}"
+export CGO_CFLAGS="${CFLAGS}"
+export CGO_CXXFLAGS="${CXXFLAGS}"
+export CGO_LDFLAGS="${LDFLAGS}"
+
+go generate ./pkg/varlink/...
+make EXTRA_LDFLAGS='-s -w -linkmode=external'
+
+make install install.completions DESTDIR="$1" PREFIX=/usr
+
+make install.docker DESTDIR="$1" PREFIX=/usr
+
+rm -rf "$1"/usr/lib/systemd
