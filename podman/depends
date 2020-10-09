@@ -1,14 +1,14 @@
+#cni-plugins
+#fuse-overlayfs
+#go-md2man make
+#iptables
 btrfs-progs make
 conmon
 eudev
 git make
 go make
+libseccomp
 lvm2
 runc
 skopeo
-#cni-plugins
-#fuse-overlayfs
-#go-md2man make
-#iptables
-#libseccomp
-#slirp4netns
+slirp4netns-bin
