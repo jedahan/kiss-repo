@@ -1,14 +1,11 @@
 #!/bin/sh -e
 
-#export BUILDTAGS='seccomp apparmor'
-export BUILDTAGS='apparmor'
 export CGO_CPPFLAGS="${CPPFLAGS}"
 export CGO_CFLAGS="${CFLAGS}"
 export CGO_CXXFLAGS="${CXXFLAGS}"
 export CGO_LDFLAGS="${LDFLAGS}"
-export GOFLAGS="-buildmode=pie -trimpath -mod=readonly -modcacherw"
-make runc man
 
+make runc man
 install -Dm755 -t "$1"/usr/bin runc
 install -d "$1/usr/share/man/man8"
 install -m644 man/man8/*.8 "$1/usr/share/man/man8"

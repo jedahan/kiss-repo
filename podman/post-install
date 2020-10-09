@@ -1,0 +1,6 @@
+you will want to mount cgroups, use the included `cgroupfs-mount` command
+
+you may also want to run the following for rootless management
+
+    sls usermod --add-subuids 10000-75535 $USER
+    sls usermod --add-subgids 10000-75535 $USER
