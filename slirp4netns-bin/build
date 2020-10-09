@@ -1,0 +1,2 @@
+#!/bin/sh -e
+install -Dm755 slirp4netns-x86_64 "$1"/usr/bin/slirp4netns
