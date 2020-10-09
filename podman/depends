@@ -5,10 +5,10 @@ git make
 go make
 lvm2
 runc
+skopeo
 #cni-plugins
 #fuse-overlayfs
 #go-md2man make
 #iptables
 #libseccomp
-#skopeo
 #slirp4netns
