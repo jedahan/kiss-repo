@@ -30,6 +30,8 @@ hack-nerd-font: hack patched with nerd font
 
 # forks
 
+firefox-wayland: fork of kiss/extra/firefox with patches removed and --enable-default-toolkit=cairo-gtk3-wayland
+
 libcap: fix build from community
 
 libressl: downgrade version 3.0.2 for openvpn
