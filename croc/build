@@ -1,4 +1,0 @@
-#!/bin/sh -e
-
-install -D -m755 -t "$1/usr/bin" croc
-install -D -t "$1/usr/share/doc/croc" README.md
