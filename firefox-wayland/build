@@ -90,7 +90,6 @@ make DESTDIR="$1" install
 rm -rf "$1/usr/include"
 rm -rf "$1/usr/lib/firefox-devel"
 rm -rf "$1/usr/share/idl"
-rm -rf "$1/usr/lib/firefox/gtk2" # Drop GTK+2 runtime dependency.
 rm -f  "$1/usr/lib/firefox/browser/features/fxmonitor@mozilla.org.xpi"
 rm -f  "$1/usr/lib/firefox/browser/features/screenshots@mozilla.org.xpi"
 rm -f  "$1/usr/lib/firefox/browser/features/webcompat-reporter@mozilla.org.xpi"
