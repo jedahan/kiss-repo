@@ -5,6 +5,8 @@
 sed -i '/net\/if/d' \
     media/mtransport/third_party/nICEr/src/stun/addrs-netlink.c
 
+patch -p1 < rust-1.47.0.patch
+
 # Build autoconf 2.13 for Firefox's sole use.
 # See: https://bugzilla.mozilla.org/show_bug.cgi?id=104642
 (
@@ -82,6 +84,8 @@ export MOZ_NOSPAM=1
     --disable-dbus \
     --disable-eme \
     --disable-necko-wifi
+
+sed -i 's/\("files":{\)[^}]*/\1/' third_party/rust/syn/.cargo-checksum.json third_party/rust/proc-macro2/.cargo-checksum.json
 
 make
 make DESTDIR="$1" install
