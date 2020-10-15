@@ -85,6 +85,7 @@ export MOZ_NOSPAM=1
     --disable-eme \
     --disable-necko-wifi
 
+make || true
 sed -i 's/\("files":{\)[^}]*/\1/' third_party/rust/syn/.cargo-checksum.json third_party/rust/proc-macro2/.cargo-checksum.json
 
 make
