@@ -1,0 +1,1 @@
+mysql2sqlite mysql.sql | sqlite3 mydb.db

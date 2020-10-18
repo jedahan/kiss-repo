@@ -1,0 +1,4 @@
+#!/bin/sh -e
+
+install -Dm755 -t "$1"/usr/bin mysql2sqlite
+install -Dm644 -t "$1"/usr/share/doc/mysql2sqlite README.md
