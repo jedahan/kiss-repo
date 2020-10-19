@@ -1,0 +1,10 @@
+#!/bin/sh -e
+
+export CGO_CPPFLAGS="${CPPFLAGS}"
+export CGO_CFLAGS="${CFLAGS}"
+export CGO_CXXFLAGS="${CXXFLAGS}"
+export CGO_LDFLAGS="${LDFLAGS}"
+
+bash ./build_linux.sh
+mkdir -p "$1"/usr/libexec/cni
+cp -ar bin/* "$1"/usr/libexec/cni/
