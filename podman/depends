@@ -1,12 +1,12 @@
-#cni-plugins
 #fuse-overlayfs
 #go-md2man make
-#iptables
 btrfs-progs make
+cni-plugins
 conmon
 eudev
 git make
 go make
+iptables
 libseccomp
 lvm2
 runc
