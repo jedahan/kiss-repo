@@ -1,0 +1,4 @@
+#!/bin/sh -e
+
+./configure -p /usr
+make DESTDIR="$1" install
