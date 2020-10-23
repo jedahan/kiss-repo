@@ -1,9 +1,9 @@
-#fuse-overlayfs
 #go-md2man make
 btrfs-progs make
 cni-plugins
 conmon
 eudev
+fuse-overlayfs
 git make
 go make
 iptables
