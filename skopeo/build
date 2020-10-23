@@ -10,9 +10,7 @@ make bin/skopeo BUILDTAGS='containers_image_ostree_stub'
 make docs
 
 make DESTDIR="$1" install
-#make PREFIX=/usr LIBEXECDIR=/usr/lib DESTDIR="$1" install
 
-#`for conf in registries.conf storage.conf seccomp.json; do
 for conf in registries.conf; do
   install -m644 "$conf" -t "$1/etc/containers/"
 done
