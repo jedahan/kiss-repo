@@ -1,4 +1,3 @@
-#go-md2man make
 btrfs-progs make
 cni-plugins
 conmon
@@ -6,6 +5,7 @@ eudev
 fuse-overlayfs
 git make
 go make
+go-md2man make
 iptables
 libseccomp
 lvm2

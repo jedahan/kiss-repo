@@ -1,4 +1,4 @@
-#go-md2man make
 git make
 go make
+go-md2man make
 libseccomp make

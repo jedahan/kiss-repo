@@ -1,5 +1,5 @@
-#go-md2man make
 argp-standalone
+go-md2man make
 libcap
 libseccomp
 libtool make 
