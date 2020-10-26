@@ -1,6 +1,6 @@
 gpgme
 lvm2
 go make
-go-md2man make
+go-md2man-bin make
 btrfs-progs make
 git make
