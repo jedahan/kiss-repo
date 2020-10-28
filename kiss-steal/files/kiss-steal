@@ -1,0 +1,31 @@
+#!/bin/zsh
+# Download and edit other distro's build scripts
+
+if [ $# -lt 1 ]; then
+  echo "requires something to search for" >2
+  exit
+fi
+
+cd $(mktemp -d)
+
+for branch in main testing; do
+  curl --output alpine-$branch \
+    --retry 3 --silent --fail --location \
+    "https://github.com/alpinelinux/aports/raw/master/$branch/$1/APKBUILD"
+done
+
+for branch in packages community; do
+  curl --output arch-$branch \
+    --retry 3 --silent --fail --location \
+    "https://raw.githubusercontent.com/archlinux/svntogit-$branch/packages/$1/trunk/PKGBUILD"
+done
+
+curl --output arch-aur \
+  --retry 3 --silent --fail --location \
+  "https://aur.archlinux.org/cgit/aur.git/plain/PKGBUILD?h=$1"
+
+curl --output void \
+  --retry 3 --silent --fail --location \
+  "https://github.com/void-linux/void-packages/raw/master/srcpkgs/$1/template"
+
+$EDITOR *
