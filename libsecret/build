@@ -1,0 +1,10 @@
+meson \
+  --prefix=/usr \
+  --default-library=static \
+  -Dgtk_doc=false \
+  -Dmanpage=false \
+  -Dintrospection=false \
+  . build
+
+meson compile -C build
+DESTDIR="$1" meson install --no-rebuild -C build

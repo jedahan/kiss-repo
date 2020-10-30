@@ -1,0 +1,10 @@
+dbus-glib make
+docbook-xsl make
+git make
+glib
+gobject-introspection make
+libgcrypt
+meson make
+py-dbus make
+python-gobject make
+vala make
