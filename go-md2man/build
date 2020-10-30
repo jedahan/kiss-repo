@@ -1,0 +1,7 @@
+#!/bin/sh -e
+
+go build -o go-md2man
+./go-md2man -in=go-md2man.1.md -out=go-md2man.1
+
+install -Dm755 -t "$1/usr/bin/" go-md2man
+install -Dm644 -t "$1/usr/share/man/man1/" go-md2man.1
