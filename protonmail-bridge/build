@@ -1,0 +1,4 @@
+#!/bin/sh -e
+
+tar -xJC "$1" -f data.tar.xz
+rm -rf "$1"/opt
