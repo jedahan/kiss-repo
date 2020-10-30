@@ -1,0 +1,15 @@
+#!/bin/sh -e
+
+cd xsl
+
+mkdir -p "$1/usr/share/xml/docbook/xsl-stylesheets-$2"
+
+cp -R VERSION assembly common eclipse epub epub3 extensions fo highlighting \
+    html htmlhelp images javahelp lib manpages params profiling roundtrip \
+    slides template tests tools webhelp website xhtml xhtml-1_1 xhtml5 \
+"$1/usr/share/xml/docbook/xsl-stylesheets-$2"
+
+ln -s VERSION "$1/usr/share/xml/docbook/xsl-stylesheets-$2/VERSION.xsl"
+
+install -Dm644 -t "$1/usr/share/doc/docbook/xsl-$2" \
+  README RELEASE-NOTES*
