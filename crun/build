@@ -1,6 +1,0 @@
-#!/bin/sh -e
-
-./autogen.sh
-./configure --disable-systemd --prefix=/usr
-make
-make DESTDIR="$1" install
