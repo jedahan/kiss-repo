@@ -11,6 +11,4 @@ make #EXTRA_LDFLAGS='-s -w -linkmode=external'
 
 make install install.completions install.docker DESTDIR="$1" PREFIX=/usr
 
-install -Dm755 cgroupfs-mount -t "$1"/usr/bin
-
 rm -rf "$1"/usr/lib/systemd
