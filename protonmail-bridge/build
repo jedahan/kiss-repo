@@ -1,4 +1,4 @@
 #!/bin/sh -e
 
-tar -xJC "$1" -f data.tar.xz
-rm -rf "$1"/opt
+make build-nogui
+install -Dm755 -t "$1"/usr/bin Desktop-Bridge

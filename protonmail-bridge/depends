@@ -1,4 +1,2 @@
-dejavu-ttf
-libsecret
-qt5-multimedia
-qt5
+gnupg2
+pass
