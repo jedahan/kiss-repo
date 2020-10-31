@@ -6,7 +6,8 @@ if [ $# -lt 1 ]; then
   exit
 fi
 
-cd $(mktemp -d)
+downloaddir=$(mktemp -d)
+pushd "$downloaddir"
 
 for branch in main testing; do
   curl --output alpine-$branch \
@@ -23,7 +24,7 @@ done
 for branch in base core extra game live testing wayland; do
   curl --output mue-$branch \
     --retry 3 --silent --fail --location \
-    "https://raw.githubusercontent.com/muevoid/mue-linux/$branch/$1/build"
+    "https://raw.githubusercontent.com/muevoid/mue-linux/master/$branch/$1/build"
 done
 
 curl --output arch-aur \
@@ -34,4 +35,7 @@ curl --output void \
   --retry 3 --silent --fail --location \
   "https://github.com/void-linux/void-packages/raw/master/srcpkgs/$1/template"
 
-$EDITOR *
+popd
+
+mv "$downloaddir" .
+$EDITOR $(basename $downloaddir)/*
