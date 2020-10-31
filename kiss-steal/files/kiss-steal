@@ -20,6 +20,12 @@ for branch in packages community; do
     "https://raw.githubusercontent.com/archlinux/svntogit-$branch/packages/$1/trunk/PKGBUILD"
 done
 
+for branch in base core extra game live testing wayland; do
+  curl --output mue-$branch \
+    --retry 3 --silent --fail --location \
+    "https://raw.githubusercontent.com/muevoid/mue-linux/$branch/$1/build"
+done
+
 curl --output arch-aur \
   --retry 3 --silent --fail --location \
   "https://aur.archlinux.org/cgit/aur.git/plain/PKGBUILD?h=$1"
