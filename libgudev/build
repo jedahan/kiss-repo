@@ -1,9 +1,0 @@
-#!/bin/sh -e
-
-./configure \
-    --prefix=/usr \
-    --enable-introspection=no \
-    --disable-umockdev
-
-make
-make DESTDIR="$1" install
