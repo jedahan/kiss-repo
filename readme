@@ -56,6 +56,8 @@ kiss-remove-orphans: dangerous script that removes all orphans not in your `$HOS
 
 kiss-steal: grab build scripts from other musl-compatible distributions
 
+kiss-unavailable: show installed packages that no longer have a source package
+
 kiss-weekly: show packages updated in the last week
 
 # kernels
