@@ -1,4 +1,4 @@
-# packages
+# applications
 
 brightnessctl: a program to read and control device brightness 
 
@@ -6,21 +6,33 @@ croc: easily and securely send things from one computer to another
 
 fwupd: update your firmware
 
-gsettings-desktop-schemas: needed to set gtk+ settings correctly in wayland
+gh: official github cli tool that supports issue, prs, forks
+
+git-bug: distributing bug-tracking inside your git repos
 
 human-cursor-theme: nice cursor theme from ubuntu
 
-libxmlb: library for xml binary making, dependency for fwupd
+hydroxide: alternative commandline bridge for protonmail
 
-nodejs-lts: lts version of nodejs
+imv: scriptable wayland-native image viewer
+
+love: simple 2d lua game engine
+
+mysql2sqlite: script to convert mysql to sqlite
+
+oguri: animated wallpaper setting daemon for wayland
+
+protonmail-bridge: official commandline bridge for protonmail
 
 suspend-on-close: sets up suspend on laptop lid close
+
+tailscale-bin: tailscale vpn support
 
 tealdeer: simplified, example based community man pages (tldr)
 
 tiny: a console irc client
 
-xlsclients: list applications running on an x11 display
+unrar: unrar rar files
 
 # fonts
 
@@ -30,13 +42,9 @@ hack-nerd-font: hack patched with nerd font
 
 # forks
 
-firefox-wayland: fork of kiss/extra/firefox with patches removed and --enable-default-toolkit=cairo-gtk3-wayland
+dejavu-ttf: fix install
 
-libcap: fix build from community
-
-libressl: downgrade version 3.0.2 for openvpn
-
-pango: enable gobject-introspection
+w3m: enable libsixel for console images
 
 # kiss commands
 
@@ -44,9 +52,9 @@ kiss-bi: kiss bi @repo/package - hacky script to specify a package from a repo
 
 kiss-describe: descibe a package, falling back to tldr if a description file is not found
 
-kiss-hunt: search package descriptions (falling back to tldr-pages) across repositories
-
 kiss-remove-orphans: dangerous script that removes all orphans not in your `$HOSTNAME` package
+
+kiss-steal: grab build scripts from other musl-compatible distributions
 
 kiss-weekly: show packages updated in the last week
 
@@ -55,6 +63,32 @@ kiss-weekly: show packages updated in the last week
 linux-talyn: micro's laptop kernel
 
 linux-headers-talyn: headers for linux-talon
+
+# dependencies
+
+docbook-xsl: dependency for libsecret
+
+flashrom: dependency for fwupd
+
+gcab: dependency for fwupd
+
+gettext: dependency for libsmbios
+
+gnu-efi: dependency for something?
+
+gsettings-desktop-schemas: needed to set gtk+ settings correctly in wayland
+
+libsmbios: dependency for fwupd?
+
+libnsgif: gif support library for imv
+
+libsecret: secret storage for the official protonmail bridge
+
+libxmlb: library for xml binary making, dependency for fwupd
+
+netsurf-buildsystem: common build tools for libnsgif
+
+txt2man: some build systems use this
 
 # bootstrapping
 
