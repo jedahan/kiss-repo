@@ -1,0 +1,6 @@
+#!/bin/zsh
+# List installed packages with missing sources
+
+kiss list | cut -d' ' -f1 \
+  | xargs -I {} zsh -c "echo \"{} \"; kiss s {} | grep -v installed | wc -l" \
+  | grep -B1 0 | grep -v '0$' | grep -v '\-\-$'
