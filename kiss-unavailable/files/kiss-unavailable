@@ -2,4 +2,4 @@
 # List installed packages with missing sources
 
 kiss list | cut -d' ' -f1 \
-  | xargs -I {} sh -c "kiss s {} | grep -qv installed || echo {}"
+  | xargs -I {} sh -c "kiss search {} | grep -qv installed || echo {}"
