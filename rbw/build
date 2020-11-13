@@ -1,0 +1,5 @@
+#!/bin/sh -e
+
+cargo build --release --locked
+
+install -Dm755 -t "$1"/usr/bin target/release/rbw

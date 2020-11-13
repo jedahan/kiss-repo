@@ -24,6 +24,8 @@ oguri: animated wallpaper setting daemon for wayland
 
 protonmail-bridge: official commandline bridge for protonmail
 
+rbw: rust bitwarden cli
+
 suspend-on-close: sets up suspend on laptop lid close
 
 tailscale-bin: tailscale vpn support
