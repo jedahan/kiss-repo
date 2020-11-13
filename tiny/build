@@ -1,3 +1,5 @@
 #!/bin/sh -e
 
-install -Dm755 -t "$1/usr/bin" tiny
+cargo build --release
+
+install -Dm755 -t "$1/usr/bin" target/release/tiny
