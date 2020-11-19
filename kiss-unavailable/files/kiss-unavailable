@@ -1,5 +1,6 @@
-#!/bin/sh
-# List installed packages with missing sources
+#!/bin/sh -e
+# List installed packages which aren't present in any repository
 
-kiss list | cut -d' ' -f1 \
-  | xargs -I {} sh -c "kiss search {} | grep -qv installed || echo {}"
+cd "$KISS_ROOT/var/db/kiss/installed"
+
+kiss s * | while read -r path; do echo "${path##*/}"; done | uniq -u
