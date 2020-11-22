@@ -2,5 +2,6 @@
 
 export DESTDIR="$1"
 
+cd unrar*
 make
 install -Dm755 unrar "$1"/usr/bin/unrar
