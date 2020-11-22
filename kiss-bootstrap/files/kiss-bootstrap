@@ -1,0 +1,82 @@
+#!/bin/sh -e
+# Create and enter a new kiss chroot
+
+log() {
+    printf '\033[32m->\033[m %s.\n' "$*"
+}
+
+die() {
+    log "$*" >&2
+    exit 1
+}
+
+clean() {
+    log Unmounting /dev, /proc and /sys from chroot; {
+        umount "$1/sys/firmware/efi/efivars" 2>/dev/null ||:
+        umount "$1/dev"  ||:
+        umount "$1/proc" ||:
+        umount "$1/sys"  ||:
+    }
+
+    log Cleaning leftover host files; {
+        rm -f "$1/root/.ash_history"
+        rm -f "$1/etc/resolv.conf"
+    }
+}
+
+mounted() {
+    # This is a pure shell mountpoint implementation. We're dealing
+    # with basic (and fixed/known) input so this doesn't need to
+    # handle more complex cases.
+    [ -e "$1" ]         || return 1
+    [ -e /proc/mounts ] || return 1
+
+    while read -r _ target _; do
+        [ "$target" = "$1" ] && return 0
+    done < /proc/mounts
+
+    return 1
+}
+
+[ -z "$1" ]        && die Need a path to the chroot
+[ -d "$1" ]        || die Given path does not exist
+[ "$(id -u)" = 0 ] || die Script needs to be run as root
+
+trap 'clean "$1"' EXIT INT
+
+log Checking for latest kiss tarball; {
+    test -d "$1/dev" || {
+      url=https://github.com/kisslinux/repo/releases/download/2020.9-2
+      kiss_tarball=kiss-chroot-2020.9-2.tar.xz
+      dest_tarball="/var/cache/$kiss_tarball"
+      test -f $dest_tarball || curl -qL $url/$kiss_tarball -o $dest_tarball
+      test -f $dest_tarball.sha256 || curl -qL $url/$kiss_tarball.sha256 -o $dest_tarball.sha256
+      cd /var/cache && sha256sum -c < $dest_tarball.sha256
+      tar xf $dest_tarball -C "$1"
+    }
+}
+
+log Mounting /dev, /proc and /sys from host; {
+    mounted "$1/dev"  || mount -o bind /dev "$1/dev"  ||:
+    mounted "$1/proc" || mount -t proc proc "$1/proc" ||:
+    mounted "$1/sys"  || mount -t sysfs sys "$1/sys"  ||:
+
+    mounted "$1/sys/firmware/efi/efivars" ||
+        mount -t efivarfs efivarfs "$1/sys/firmware/efi/efivars" 2>/dev/null ||:
+}
+
+log Copying /etc/resolv.conf from host; {
+    cp -f /etc/resolv.conf "$1/etc" ||:
+}
+
+log Entering chroot; {
+    chroot "$1" /usr/bin/env -i \
+        HOME=/root \
+        TERM="$TERM" \
+        SHELL=/bin/sh \
+        USER=root \
+        CFLAGS="${CFLAGS:--march=x86-64 -mtune=generic -pipe -Os}" \
+        CXXFLAGS="${CXXFLAGS:--march=x86-64 -mtune=generic -pipe -Os}" \
+        MAKEFLAGS="${MAKEFLAGS:--j$(nproc 2>/dev/null || echo 1)}" \
+        /bin/sh -l
+}
