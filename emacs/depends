@@ -1,0 +1,11 @@
+giflib
+gnutls
+libjansson
+libjpeg-turbo
+libpng
+libxaw3d
+libxml2
+ncurses
+shellcheck-bin
+tiff
+zlib
