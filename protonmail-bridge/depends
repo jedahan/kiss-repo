@@ -1,2 +1,5 @@
+glib
 gnupg2
+libgcrypt
+libgpg-error
 pass
