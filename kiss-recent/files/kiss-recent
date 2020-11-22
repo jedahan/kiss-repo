@@ -1,11 +1,11 @@
 #!/bin/zsh
-# Show all the new packages added to repos this week
+# Show all the new packages added to repos recently (default 1 week)
 
 new_packages=$(echo $KISS_PATH | tr ':' '\n' | grep -v installed | xargs -I _ \
   git -C _ --no-pager \
     log \
     --oneline \
-    --since="1 week ago" \
+    --since="${1:-1 week ago}" \
     --regexp-ignore-case \
     --grep 'new' \
   | cut -d':' -f1 \
