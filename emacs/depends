@@ -1,6 +1,6 @@
 giflib
 gnutls
-libjansson
+jansson
 libjpeg-turbo
 libpng
 libxaw3d
