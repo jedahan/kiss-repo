@@ -1,0 +1,5 @@
+cmake make
+libressl
+openssh make
+python make
+zlib
