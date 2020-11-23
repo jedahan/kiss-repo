@@ -1,0 +1,11 @@
+#!/bin/sh -e 
+
+cmake -DCMAKE_INSTALL_PREFIX=/usr \
+      -DCMAKE_BUILD_TYPE=None \
+      -DBUILD_SHARED_LIBS=ON \
+      -DMSGPACK_ENABLE_STATIC=ON \
+      -DMSGPACK_CXX11=ON \
+      -DMSGPACK_BUILD_EXAMPLES=OFF \
+      .
+make
+make DESTDIR="$1" install
