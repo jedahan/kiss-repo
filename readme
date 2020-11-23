@@ -64,12 +64,6 @@ kiss-unavailable: show installed packages that no longer have a source package
 
 kiss-weekly: show packages updated in the last week
 
-# kernels
-
-linux-talyn: micro's laptop kernel
-
-linux-headers-talyn: headers for linux-talon
-
 # dependencies
 
 docbook-xsl: dependency for libsecret
@@ -95,9 +89,3 @@ libxmlb: library for xml binary making, dependency for fwupd
 netsurf-buildsystem: common build tools for libnsgif
 
 txt2man: some build systems use this
-
-# bootstrapping
-
-talyn-config: etcfiles and repositories needed to bootstrap
-
-talyn: micro's laptop packages

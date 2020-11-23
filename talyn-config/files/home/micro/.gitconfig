@@ -1,5 +1,0 @@
-[pull]
-	rebase = true
-[user]
-	email = git@jonathan.is
-	name = Jonathan Dahan
