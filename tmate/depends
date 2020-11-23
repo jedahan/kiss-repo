@@ -1,0 +1,5 @@
+libevent
+libssh
+msgpack-c
+ncurses
+tmux
