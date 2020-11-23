@@ -6,6 +6,7 @@ libpng
 libxaw3d
 libxml2
 ncurses
+pandoc-bin
 shellcheck-bin
 tiff
 zlib
