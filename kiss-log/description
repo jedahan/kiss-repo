@@ -1,0 +1,5 @@
+Show commit logs for new and updated packages
+
+You can pass ranges like "2 weeks ago" and "1 day ago"
+
+Defaults to 1 week ago

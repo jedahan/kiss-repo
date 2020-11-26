@@ -1,0 +1,11 @@
+#!/bin/zsh
+# List new and updated packages
+
+for repo in ${(s.:.)KISS_PATH}; do
+  cd $repo
+  git log \
+    --since="${1:-1 week ago}" \
+    --diff-filter=AM \
+    --format=%s \
+    -- */version
+done | sort
