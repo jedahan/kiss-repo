@@ -6,4 +6,4 @@ go build \
     -modcacherw \
     -trimpath
 
-install -Dm755 git-bug "$1/usr/bin/git-bug"
+install -Dm755 -t "$1"/usr/bin git-bug
