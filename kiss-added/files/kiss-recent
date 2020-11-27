@@ -1,0 +1,13 @@
+#!/bin/zsh
+# Show all the new packages added to repos recently (default 1 week)
+
+for repo in ${(s.:.)KISS_PATH}; do
+  cd $repo
+  git log \
+    --name-only \
+    --since="${1:-1 week ago}" \
+    --diff-filter=A \
+    --pretty=format: \
+    --relative \
+    -- */version
+done | sed 's|/version||' | sort -u
