@@ -81,7 +81,6 @@ export MOZ_NOSPAM=1
     --disable-jemalloc \
     --disable-crashreporter \
     --disable-updater \
-    --disable-dbus \
     --disable-eme \
     --disable-necko-wifi \
     --enable-default-toolkit=cairo-gtk3-wayland

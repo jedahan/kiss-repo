@@ -4,6 +4,7 @@ bzip2
 cairo
 cbindgen      make
 clang         make
+dbus
 expat
 ffmpeg
 fontconfig
