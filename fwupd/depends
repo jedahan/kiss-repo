@@ -1,11 +1,19 @@
+curl
 efivar
 flashrom
 gcab
+glib
 gnutls
 gpgme
 libarchive
+libgpg-error
 libgudev
+libsmbios
 libsoup
+libusb
+libxmlb
+pango
 pciutils
-polkit
 python-gobject make
+python-pillow make
+sqlite
