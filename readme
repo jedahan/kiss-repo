@@ -90,4 +90,6 @@ libxmlb: library for xml binary making, dependency for fwupd
 
 netsurf-buildsystem: common build tools for libnsgif
 
+python-pillow: for fwupd's eufi plugin
+
 txt2man: some build systems use this
