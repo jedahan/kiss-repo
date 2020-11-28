@@ -1,0 +1,9 @@
+freetype-harfbuzz
+lcms
+libjpeg-turbo
+libwebp make
+libxcb
+openjpeg2
+python
+tiff
+zlib
