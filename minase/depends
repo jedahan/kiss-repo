@@ -1,0 +1,4 @@
+cmake make
+gcc
+taglib
+uchardet
