@@ -37,5 +37,5 @@ curl --output void \
 
 popd
 
-mv "$downloaddir" .
-$EDITOR $(basename $downloaddir)/*
+mv "$downloaddir" $1
+$EDITOR $1/*
