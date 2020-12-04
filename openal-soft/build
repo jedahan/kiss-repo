@@ -1,0 +1,13 @@
+#!/bin/sh -e
+
+#GCC10 fix
+export CFLAGS="$CFLAGS -fcommon"
+
+export DESTDIR="$1"
+
+cmake -B build \
+    -DCMAKE_INSTALL_PREFIX=/usr \
+    -DALSOFT_EXAMPLES=OFF
+
+cmake --build   build
+cmake --install build
