@@ -17,3 +17,4 @@ pciutils
 python-gobject make
 python-pillow make
 sqlite
+udisks2
