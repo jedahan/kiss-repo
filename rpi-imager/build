@@ -1,0 +1,11 @@
+#!/bin/sh -e
+
+sed -i -e 's/CURL REQUIRED \([0-9.]*\)/CURL \1 REQUIRED/' CMakeLists.txt
+
+cmake -B build \
+  -DCMAKE_BUILD_TYPE='None' \
+  -DCMAKE_INSTALL_PREFIX='/usr'
+
+make -C build
+
+make -C build DESTDIR="$1" install

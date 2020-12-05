@@ -1,0 +1,10 @@
+cmake make 
+curl
+gcc make 
+libarchive
+libressl
+qt5
+qt5-declarative
+qt5-quickcontrols2
+qt5-svg
+qt5-tools
