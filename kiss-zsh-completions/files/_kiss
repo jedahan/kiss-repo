@@ -1,0 +1,16 @@
+#compdef kiss
+
+_kiss() {
+  local line
+
+  function _commands() {
+    IFS=$'\n'
+    local -a extcommands=(${(@f)$(kiss help-ext 2>&1 | cut -d' ' -f2- | tr -s ' ' | sed -e 's/\ /\:/' | grep -v 'Installed' | grep -v ':$' )})
+    local -a subcommands=(${(@f)$(kiss 2>&1 | cut -d' ' -f2- | tr -s ' ' | sed -e 's/\ /\:/' | grep -v 'Installed' | grep -v '^["]kiss' | grep -v ':$' )})
+    _describe 'command' subcommands -- extcommands
+  }
+
+  _arguments -C "1: :_commands"
+}
+
+_kiss
