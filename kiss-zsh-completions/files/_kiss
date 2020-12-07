@@ -5,8 +5,8 @@ _kiss() {
 
   function _commands() {
     IFS=$'\n'
-    local -a extcommands=(${(@f)$(kiss help-ext 2>&1 | cut -d' ' -f2- | tr -s ' ' | sed -e 's/\ /\:/' | grep -v 'Installed' | grep -v ':$' )})
-    local -a subcommands=(${(@f)$(kiss 2>&1 | cut -d' ' -f2- | tr -s ' ' | sed -e 's/\ /\:/' | grep -v 'Installed' | grep -v '^["]kiss' | grep -v ':$' )})
+    local -a extcommands=(${(@f)$(kiss help-ext 2>&1 | tail -n+2 | cut -d' ' -f2- | tr -s ' ' | sed -e 's/\ /\:/' )})
+    local -a subcommands=(${(@f)$(kiss 2>&1 | tail -n+2 | head -n2 | cut -d' ' -f2- | tr -s ' ' | sed -e 's/\ /\:/' )})
     _describe 'command' subcommands -- extcommands
   }
 
