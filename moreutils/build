@@ -1,0 +1,5 @@
+#!/bin/sh -e
+
+make isutf8 ifdata ifne pee sponge mispipe lckdo parallel errno 
+install -Dm755 -t "$1"/usr/bin isutf8 ifdata ifne pee sponge mispipe lckdo parallel errno 
+install -Dm755 -t "$1"/usr/bin vidir vipe ts combine zrun chronic

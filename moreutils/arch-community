@@ -1,0 +1,6 @@
+#!/bin/sh -e
+
+#make DOCBOOK2XMAN=docbook2man
+make
+make PREFIX="$1"/usr install
+#chmod 0644 "$1"/usr/share/man/man1/*
