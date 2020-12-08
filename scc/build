@@ -1,0 +1,4 @@
+#!/bin/sh -e
+GOFLAGS="-modcacherw" go build .
+install -Dm755 -t "$1"/usr/bin scc
+install -Dm644 -t "$1"/usr/share/licenses/scc LICENSE
