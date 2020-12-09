@@ -1,5 +1,13 @@
+cairo
 cmocka
 freeimage
-glu
+glib
+icu
+libjpeg-turbo
 libnsgif
+libpng
+mesa
+pango
+tiff
+wayland
 wayland-protocols make
