@@ -9,8 +9,8 @@ done
 sed -i '/net\/if/d' \
     dom/media/webrtc/transport/third_party/nICEr/src/stun/addrs-netlink.c
 
-# Build autoconf 2.13 for Firefox's sole use.
-# See: https://bugzilla.mozilla.org/show_bug.cgi?id=104642
+# firefox requires autoconf 2.13
+# https://bugzilla.mozilla.org/show_bug.cgi?id=104642
 (
     cd autoconf2.13
 
@@ -22,9 +22,7 @@ sed -i '/net\/if/d' \
     make install
 )
 
-# Build yasm for Firefox's sole use.
-# Firefox is the only package which needs it
-# and upstream is kinda dead.
+# firefox requires yasm, and upstream yasm is kinda dead
 (
     cd yasm
 
@@ -36,8 +34,7 @@ sed -i '/net\/if/d' \
 )
 export PATH="$PWD/junk/bin:$PATH"
 
-# Bypass 'ccache' as it's totally useless when building
-# Firefox and only slows things down.
+# bypass 'ccache' as it only slows down the build
 export CC="${CC:-/usr/bin/cc}"
 export CXX="${CXX:-/usr/bin/c++}"
 
