@@ -1,8 +1,6 @@
 #!/bin/sh -e
 
-for patch in *.patch; do
-    patch -p1 < "$patch"
-done
+patch -p1 < no-gtk2.patch
 
 # Remove libc header which conflicts with 7 or so Linux
 # kernel headers. See: https://github.com/kisslinux/repo/issues/207
@@ -34,20 +32,16 @@ sed -i '/net\/if/d' \
 )
 export PATH="$PWD/junk/bin:$PATH"
 
-# bypass 'ccache' as it only slows down the build
-export CC="${CC:-/usr/bin/cc}"
-export CXX="${CXX:-/usr/bin/c++}"
-
 export LDFLAGS="$LDFLAGS -Wl,-rpath=/usr/lib/firefox"
 export RUSTFLAGS="$RUSTFLAGS -Cdebuginfo=0"
-export MOZ_DEBUG_FLAGS=-g0
-export MOZ_NOSPAM=1
-export MOZ_X11=0
-export MOZ_WAYLAND=1
-export MOZ_NOSPAM=1
 export MACH_USE_SYSTEM_PYTHON=1
 
 cat > .mozconfig <<END
+export MOZ_DEBUG_FLAGS=-g0
+export MOZ_NOSPAM=1
+export MOZ_WAYLAND=1
+export MOZ_X11=0
+
 ac_add_options --prefix=/usr
 ac_add_options --libdir=/usr/lib
 ac_add_options --enable-official-branding
@@ -58,7 +52,7 @@ ac_add_options --enable-rust-simd
 ac_add_options --enable-application=browser
 ac_add_options --enable-release
 ac_add_options --enable-alsa
-ac_add_options --without-x11
+ac_add_options --without-ccache
 ac_add_options --without-system-nspr
 ac_add_options --without-system-nss
 ac_add_options --with-system-jpeg
