@@ -1,5 +1,5 @@
 #!/bin/sh -e
 
 cargo build --release
-
-install -Dm755 -t "$1/usr/bin" target/release/tiny
+install -Dm755 -t "$1"/usr/bin target/release/tiny
+install -Dm644 -t "$1"/usr/share/doc/tiny README.md
