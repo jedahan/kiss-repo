@@ -1,4 +1,0 @@
-#!/bin/sh -e
-
-make build-nogui
-install -Dm755 -t "$1"/usr/bin Desktop-Bridge
