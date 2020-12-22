@@ -3,7 +3,7 @@
 `kiss-find` is a little shell script that allows you to search for packages in
 every known KISS repository, including ones you haven't added to your `KISS_PATH`.
 
-It was built by [admicos](https://git.ebc.li/admicos).
+It was built by [admicos](https://git.ebc.li/admicos), with contributions from @aarng.
 
 ## Usage
 
