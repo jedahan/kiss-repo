@@ -25,16 +25,5 @@ if [ ! -f "$DB_PATH" ]; then
 	exit
 fi
 
-# Speed up grep
-export LC_ALL=C
-
-DATABASE="$(zcat "$DB_PATH")"
-
-query() {
-	echo "$DATABASE" | jq "$@"
-}
-
-#          get all pkg names > grep query   > wrap line in quotes   > one line    > remove last comma
-RESULTS="$(query -r "keys[]" | grep -i "$1" | sed 's/\(.*\)/"\1"/g' | tr "\n" "," | sed 's/.$//')"
-
-query "{$RESULTS}"
+zcat "$DB_PATH" | jq --arg query "$@" \
+  'to_entries[] | select(.key | ascii_downcase | contains($query | ascii_downcase))'
