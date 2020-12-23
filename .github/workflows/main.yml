@@ -34,3 +34,4 @@ jobs:
         uses: jedahan/upload-assets@0.2.4
         with:
           asset_paths: '["*.tar.gz"]'
+          require_tag: 'false'
