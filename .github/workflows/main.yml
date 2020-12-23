@@ -28,11 +28,10 @@ jobs:
       - name: build updated binaries
         run: |
           for changed_file in ${{ steps.files.outputs.all }}; do
-            if [[ "$changed_file" =~ ".*/version" ]]; do
+            if [[ "$changed_file" =~ ".*/version" ]]; then
               kiss-ci/files/kiss-ci $(dirname "$changed_file")
             fi
           done
-          export env.OUTPUT="$(ls *.tar.gz)"
 
       - name: add new binaries
         uses: alexellis/upload-assets@0.2.2
