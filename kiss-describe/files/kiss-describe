@@ -1,6 +1,8 @@
 #!/bin/sh -e
 # Print package description, falling back to tldr
 
-package_path=$(kiss s $@ 2>/dev/null | head -n1)
-test -f $package_path/description && command cat $package_path/description
-test -f $package_path/description || tldr -q "$@" 2>/dev/null | head -n2 | tail -n1 | cut -d' ' -f3-
+package_path=$(kiss search $@ 2>/dev/null | head -n1)
+
+test -f "$package_path"/description \
+  && command cat "$package_path"/description \
+  || tldr -q "$@" 2>/dev/null | head -n2 | tail -n1 | cut -d' ' -f3-
