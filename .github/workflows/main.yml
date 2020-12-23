@@ -15,9 +15,6 @@ jobs:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     steps:
-      - name: install podman
-        run: sudo apt install podman -y
-
       - name: checkout code
         uses: actions/checkout@v2
 
@@ -27,10 +24,9 @@ jobs:
 
       - name: build updated binaries
         run: |
-          podman --version
           for changed_file in ${{ steps.files.outputs.all }}; do
             if [[ "$changed_file" =~ .*/version$ ]]; then
-              kiss-ci/files/kiss-ci $(dirname "$changed_file")
+              KISS_DEBUG=true kiss-ci/files/kiss-ci $(dirname "$changed_file")
             fi
           done
 
