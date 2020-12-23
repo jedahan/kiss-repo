@@ -1,4 +1,4 @@
-name: CI
+name: build binaries
 
 on:
   push:
@@ -6,7 +6,6 @@ on:
   pull_request:
     branches: [ main ]
 
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
 jobs:
@@ -36,4 +35,4 @@ jobs:
         with:
           tag: latest
           token: ${{ secrets.GITHUB_TOKEN }}
-          files: *.tar.gz
+          files: "*.tar.gz"
