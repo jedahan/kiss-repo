@@ -16,7 +16,7 @@ imageid=$(podman image list --quiet $tag)
 
 # build container if it doesn't exist
 if [[ -z "$imageid" ]]; then
-  containerfile_uri="https://git.sr.ht/~armaan/dockerfiles/blob/32f35a1682186934a66f42163719d6958676cbca/kiss/2020.9-2/Dockerfile"
+  containerfile_uri="https://git.sr.ht/~armaan/dockerfiles/blob/9617cde3bc1c18e9feac8c46ff5eea7cf3625700/kiss/2020.9-2/Dockerfile"
   curl --silent $containerfile_uri | podman build --pull-never --tag $tag --file -
 fi
 
@@ -33,4 +33,4 @@ podman run \
   --volume "$CACHE_HOME":/usr/repos/jedahan \
   --env KISS_PATH="/usr/repos/jedahan:/usr/repos/official/core:/usr/repos/official/extra:/usr/repos/official/testing:/usr/repos/official/xorg:/usr/repos/community/community" \
   "$tag" \
-  kiss build kiss && kiss install kiss && kiss build "$*"
+  ls && pwd && ls / && kiss build "$*" && ls
