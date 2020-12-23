@@ -1,0 +1,7 @@
+#!/bin/sh -e
+
+go build \
+    -modcacherw \
+    -trimpath
+
+install -Dm755 -t "$1"/usr/bin act
