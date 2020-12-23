@@ -22,8 +22,8 @@ jobs:
         uses: actions/checkout@v2
 
       - name: get changed files
-          id: files
         uses: jitterbit/get-changed-files@v1
+        id: files
 
       - name: build updated binaries
         run: |
