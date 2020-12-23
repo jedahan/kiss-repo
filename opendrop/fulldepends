@@ -1,0 +1,10 @@
+python-requests
+python-fleep
+python-ifaddr
+python-pillow
+python-requests-toolbelt
+python-ctypescrypto
+python-libarchive-c
+python-netifaces
+python-zeroconf
+owlink
