@@ -29,7 +29,7 @@ jobs:
         run: |
           for changed_file in ${{ steps.files.outputs.all }}; do
             if [[ "$changed_file" =~ .*/version$ ]]; then
-              bash kiss-ci/files/kiss-ci $(dirname "$changed_file")
+              sudo ./kiss-ci/files/kiss-ci $(dirname "$changed_file")
             fi
           done
 
