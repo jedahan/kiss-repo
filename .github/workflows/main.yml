@@ -29,6 +29,8 @@ jobs:
               KISS_DEBUG=true kiss-ci/files/kiss-ci $(dirname "$changed_file")
             fi
           done
+          ls
+          pwd
 
       - name: add new binaries
         uses: alexellis/upload-assets@0.2.2
