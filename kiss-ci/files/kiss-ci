@@ -21,8 +21,8 @@ if [[ -z "$imageid"  ]] &&  [[ ! -f "$containerfile"  ]]; then
   curl --silent "$containerfile_uri" --output "$containerfile"
 fi
 
-if [[ -n "$imageid" ]]; then 
+if [[ -z "$imageid" ]]; then
   podman build --pull-never --tag $tag --file "$containerfile" .
 fi
 
-podman run --volume "$PWD":/root/.cache/kiss/bin kiss kiss build "$*"
+podman run --volume "$PWD":/root/.cache/kiss/bin "$tag" kiss build "$*"
