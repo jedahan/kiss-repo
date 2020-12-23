@@ -21,8 +21,11 @@ jobs:
       - name: checkout code
         uses: actions/checkout@v2
 
-      - name: generate binaries
+      - name: get changed files
+          id: files
         uses: jitterbit/get-changed-files@v1
+
+      - name: build updated binaries
         run: |
           for changed_file in ${{ steps.files.outputs.all }}; do
             if [[ "$changed_file" =~ ".*/version" ]]; do
