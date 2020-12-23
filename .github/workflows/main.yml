@@ -35,4 +35,4 @@ jobs:
       - name: add new binaries
         uses: alexellis/upload-assets@0.2.2
         with:
-          asset_paths: '["./*.tar.gz"]'
+          asset_paths: '["*.tar.gz"]'
