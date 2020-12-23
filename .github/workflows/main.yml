@@ -18,6 +18,9 @@ jobs:
       - name: checkout code
         uses: actions/checkout@v2
 
+      - name: install networking
+        run: apt install -y slirp4netns
+
       - name: get changed files
         uses: jitterbit/get-changed-files@v1
         id: files
