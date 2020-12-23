@@ -20,4 +20,7 @@ if [[ -z "$imageid" ]]; then
   curl --silent $containerfile_uri | podman build --pull-never --tag $tag --file -
 fi
 
-podman run --pull=never --volume "$PWD":/root/.cache/kiss/bin "$tag" kiss build "$*"
+podman run --pull=never --volume "$PWD":/root/.cache/kiss/bin "$tag" \
+  git clone https://github.com/jedahan/kiss-repo /usr/repos/jedahan \
+  && export KISS_PATH="/usr/repos/official/core:/usr/repos/official/extra:/usr/repos/official/testing:/usr/repos/official/xorg:/usr/repos/community/community:/usr/repos/jedahan" \
+  && kiss build "$*"
