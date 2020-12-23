@@ -14,15 +14,10 @@ version=2020.9-2
 tag=kiss:$version
 imageid=$(podman image list --quiet $tag)
 
-# download containerfile if we don't already have the kiss:2020.9-2 image
-containerfile_uri="https://git.sr.ht/~armaan/dockerfiles/blob/32f35a1682186934a66f42163719d6958676cbca/kiss/2020.9-2/Dockerfile"
-containerfile=/${XDG_CACHE_HOME:-$HOME/.cache}/kiss-ci-containerfile
-if [[ -z "$imageid"  ]] &&  [[ ! -f "$containerfile"  ]]; then
-  curl --silent "$containerfile_uri" --output "$containerfile"
-fi
-
+# build container if it doesn't exist
 if [[ -z "$imageid" ]]; then
-  podman build --pull-never --tag $tag --file "$containerfile" .
+  containerfile_uri="https://git.sr.ht/~armaan/dockerfiles/blob/32f35a1682186934a66f42163719d6958676cbca/kiss/2020.9-2/Dockerfile"
+  curl --silent $containerfile_uri | podman build --pull=never --tag $tag --file -
 fi
 
-podman run --volume "$PWD":/root/.cache/kiss/bin "$tag" kiss build "$*"
+podman run --pull=never --volume "$PWD":/root/.cache/kiss/bin "$tag" kiss build "$*"
