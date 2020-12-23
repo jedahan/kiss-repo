@@ -9,7 +9,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  update_database:
+  build_binaries:
     runs-on: ubuntu-latest
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
