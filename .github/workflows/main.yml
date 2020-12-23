@@ -31,6 +31,6 @@ jobs:
           done
 
       - name: add new binaries
-        uses: alexellis/upload-assets@0.2.3
+        uses: jedahan/upload-assets@0.2.4
         with:
           asset_paths: '["*.tar.gz"]'
