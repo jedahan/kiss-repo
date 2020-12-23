@@ -20,16 +20,16 @@ if [[ -z "$imageid" ]]; then
   curl --silent $containerfile_uri | podman build --pull-never --tag $tag --file -
 fi
 
-jedahan_repo="${XDG_CACHE_HOME:$HOME/kiss-ci}"/jedahan-repo
-if [[ -d "$jedahan_repo" ]]; then
-  git -C "$jedahan_repo" pull
+CACHE_HOME="${XDG_CACHE_HOME:-$HOME/.cache}"/kiss-ci/jedahan-repo
+if [[ -d "$CACHE_HOME" ]]; then
+  git -C "$CACHE_HOME" pull
 else
-  git clone --depth=1 https://github.com/jedahan/kiss-repo "$jedahan_repo"
+  git clone --depth=1 https://github.com/jedahan/kiss-repo "$CACHE_HOME"
 fi
 
 podman run --pull=never \
   --volume "$PWD":/root/.cache/kiss/bin \
-  --volume "$jedahan_repo":/usr/repos/jedahan \
+  --volume "$CACHE_HOME":/usr/repos/jedahan \
   "$tag" \
   export KISS_PATH="/usr/repos/jedahan:/usr/repos/official/core:/usr/repos/official/extra:/usr/repos/official/testing:/usr/repos/official/xorg:/usr/repos/community/community" \
   && kiss build "$*"
