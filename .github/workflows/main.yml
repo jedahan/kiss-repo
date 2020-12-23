@@ -1,0 +1,39 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  update_database:
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    steps:
+      - name: install podman
+        run: sudo apt install podman -y
+
+      - name: checkout code
+        uses: actions/checkout@v2
+
+      - name: generate binaries
+        uses: jitterbit/get-changed-files@v1
+        run: |
+          for changed_file in ${{ steps.files.outputs.all }}; do
+            if [[ "$changed_file" =~ ".*/version" ]]; do
+              kiss-ci/files/kiss-ci $(dirname "$changed_file")
+            fi
+          done
+
+      - name: add to latest release
+        uses: johnwbyrd/update-release@v1
+        with:
+          tag: latest
+          token: ${{ secrets.GITHUB_TOKEN }}
+          files: *.tar.gz
