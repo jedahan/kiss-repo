@@ -31,7 +31,7 @@ jobs:
           done
 
       - name: add new binaries
-        uses: jedahan/upload-assets@0.2.5
+        uses: jedahan/upload-assets@0.3.0
         with:
-          asset_paths: '["*.tar.gz"]'
+          asset_paths: '*.tar.gz'
           require_tag: 'false'
