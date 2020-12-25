@@ -1,2 +1,4 @@
 gcc
+libressl
+libxcb
 rust make
