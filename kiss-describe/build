@@ -1,3 +1,3 @@
 #!/bin/sh -e
 
-instal -Dm755 -t "$1/usr/bin" kiss-describe
+install -Dm755 -t "$1/usr/bin" kiss-describe

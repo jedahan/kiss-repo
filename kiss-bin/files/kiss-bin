@@ -5,7 +5,7 @@ set -euo pipefail
 for package in "$@"; do
   package_path=$(kiss search "$package" 2>/dev/null | head -n1)
   version=$(tr ' ' '-' < "$package_path"/version)
-  curl --silent --location --continue-at --remote-name \
+  curl --silent --location --remote-name \
     --output-dir "${XDG_CACHE_HOME:-$HOME/.cache}"/kiss/bin \
     https://github.com/jedahan/kiss-repo/releases/download/latest/"$package"@"$version".tar.gz
 done
