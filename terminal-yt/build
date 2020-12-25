@@ -1,0 +1,6 @@
+#!/bin/sh -e
+
+cd terminal-yt-f0898384f3f86038b62bd20c450845a30c0e8e63
+cargo build --release
+install -Dm755 -t "$1"/usr/bin target/release/tyt
+install -Dm644 -t "$1"/usr/share/doc/tiny README.md
