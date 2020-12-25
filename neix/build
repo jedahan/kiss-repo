@@ -1,0 +1,10 @@
+#!/bin/sh -e
+
+cmake . \
+    -Wno-dev \
+    -DCMAKE_INSTALL_PREFIX=/usr \
+    -DENABLE_TESTS=ON
+
+make
+make DESTDIR="$1" PREFIX='/usr' install
+install -Dm644 -t "$1"/usr/share/doc/neix README.md
