@@ -1,6 +1,6 @@
 #!/bin/sh -e
 
-cd terminal-yt-f0898384f3f86038b62bd20c450845a30c0e8e63
+cd terminal-yt-b57f0b3934640d06ae1f15945983b5a0f383d19b
 cargo build --release
 install -Dm755 -t "$1"/usr/bin target/release/tyt
 install -Dm644 -t "$1"/usr/share/doc/tiny README.md
