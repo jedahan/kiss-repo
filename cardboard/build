@@ -1,0 +1,9 @@
+#!/bin/sh -e
+
+export DESTDIR="$1"
+
+patch -p1 < add-missing-headers.patch
+meson --prefix=/usr -Dxwayland=disabled build
+ninja -C build
+ninja -C build install
+rm -rf "$1"/usr/include/wlr "$1"/usr/lib/pkgconfig

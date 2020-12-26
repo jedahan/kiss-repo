@@ -1,0 +1,24 @@
+diff --git a/cardboard/commands/commands.h b/cardboard/commands/commands.h
+index 8463639..d347dad 100644
+--- a/cardboard/commands/commands.h
++++ b/cardboard/commands/commands.h
+@@ -15,6 +15,7 @@ You should have received a copy of the GNU General Public License along with thi
+ #include <cstdint>
+ #include <locale>
+ #include <string>
++#include <cstring>
+ #include <string_view>
+ 
+ #include "../Command.h"
+diff --git a/libcardboard/src/client.cpp b/libcardboard/src/client.cpp
+index 1cb87cf..4e6d437 100644
+--- a/libcardboard/src/client.cpp
++++ b/libcardboard/src/client.cpp
+@@ -14,6 +14,7 @@ You should have received a copy of the GNU General Public License along with thi
+ #include <sys/socket.h>
+ #include <sys/un.h>
+ #include <unistd.h>
++#include <cstring>
+ 
+ namespace libcutter {
+ 

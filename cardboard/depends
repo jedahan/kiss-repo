@@ -1,0 +1,12 @@
+eudev
+gcc
+libX11
+libdrm
+libinput
+libxcb
+libxkbcommon
+mesa
+pixman
+wayland
+wayland-protocols make
+wlroots
