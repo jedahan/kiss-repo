@@ -1,6 +1,5 @@
 #!/bin/sh -e
 
-cd imv-489421b9e763865881df614a3ef550b289409677
 sed -ie '/prog_a2x = find_program/,$d' meson.build
 
 meson --prefix /usr \

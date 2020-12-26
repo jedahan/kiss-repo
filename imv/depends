@@ -6,6 +6,7 @@ icu
 libjpeg-turbo
 libnsgif
 libpng
+libwebp
 mesa
 pango
 tiff
