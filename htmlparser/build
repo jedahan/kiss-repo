@@ -1,0 +1,7 @@
+#!/bin/sh -e
+
+cd htmlparser-02f964ebd24c296dcfa56c357bb8dedde0f39757
+
+go build -modcacherw -trimpath
+
+install -Dm755 -t "$1"/usr/bin htmlparser
