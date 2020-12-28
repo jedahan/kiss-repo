@@ -1,0 +1,7 @@
+#!/bin/sh -e
+
+cd hunter-2e95cc567c751263f8c318399f3c5bb01d36962a
+
+cargo install --path . --root "$1" \
+  --no-default-features \
+  --features=img,sixel
