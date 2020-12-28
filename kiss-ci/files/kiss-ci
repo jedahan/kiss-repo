@@ -28,4 +28,4 @@ podman run \
   --volume "$CACHE_HOME":/usr/repos/jedahan \
   --env KISS_PATH="/usr/repos/jedahan:/usr/repos/official/core:/usr/repos/official/extra:/usr/repos/official/testing:/usr/repos/official/xorg:/usr/repos/community/community" \
   "$tag" \
-  kiss build "$*"
+  sh -c "/usr/repos/jedahan/kiss-bin/files/kiss-bin $(cat $(kiss search $1)/depends | cut -d' ' -f1 | tr '\n' ' '); kiss build $1"
