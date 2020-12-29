@@ -2,6 +2,7 @@
 
 cd htmlparser-02f964ebd24c296dcfa56c357bb8dedde0f39757
 
-go build -modcacherw -trimpath
+CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build \
+  -ldflags='-w -s -extldflags "-static"' -a
 
 install -Dm755 -t "$1"/usr/bin htmlparser
