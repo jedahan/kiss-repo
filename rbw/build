@@ -1,6 +1,5 @@
 #!/bin/sh -e
 
-cargo build --release --locked
-
-install -Dm755 -t "$1"/usr/bin target/release/rbw
+cargo install --no-track --root "$1"/usr --path .
 install -Dm755 -t "$1"/usr/bin bin/rbw-fzf
+install -Dm644 -t "$1"/usr/share/doc/rbw CHANGELOG.md LICENSE README.md 
