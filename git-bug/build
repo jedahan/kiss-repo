@@ -1,9 +1,4 @@
 #!/bin/sh -e
 
-export GO111MODULE=on
-
-go build \
-    -modcacherw \
-    -trimpath
-
+make
 install -Dm755 -t "$1"/usr/bin git-bug
