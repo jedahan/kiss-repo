@@ -1,7 +1,4 @@
 #!/bin/sh -e
 
-go build \
-    -modcacherw \
-    -trimpath
-
+go build -v -modcacherw -trimpath -ldflags "-X main.version=0.2.17"
 install -Dm755 -t "$1"/usr/bin act
