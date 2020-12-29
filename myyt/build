@@ -1,0 +1,5 @@
+#!/bin/sh -e
+
+cd myyt-682c7dd04cf48b8f25e06a110ffdb9e5fb6a87b1
+
+install -Dm755 -t "$1"/usr/bin myyt dmenyt
