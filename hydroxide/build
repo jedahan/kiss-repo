@@ -1,5 +1,4 @@
 #!/bin/sh -e
 
 GO111MODULE=on go build ./cmd/hydroxide
-
-install -Dm755 -t "$1/usr/bin" hydroxide
+install -Dm755 -t "$1"/usr/bin hydroxide
