@@ -1,7 +1,4 @@
 #!/bin/sh -e
 
-go build \
-    -modcacherw \
-    -trimpath
-
-install -Dm755 -t "$1"/usr/bin amfora
+make
+make PREFIX="$1"/usr install
