@@ -2,8 +2,6 @@
 
 cd hunter-2e95cc567c751263f8c318399f3c5bb01d36962a
 
-cargo build --release --locked \
+cargo install --no-track --root "$1"/usr --path . \
   --no-default-features \
   --features=img,sixel
-
-install -Dm755 -t "$1"/usr/bin target/release/hunter target/release/hunter-media
