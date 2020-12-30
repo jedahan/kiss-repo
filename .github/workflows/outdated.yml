@@ -20,7 +20,14 @@ jobs:
           for versionpath in */version; do
             package=$(basename $(dirname "$versionpath"))
             version=$(awk '{print $1}' $versionpath)
-            latest=$(curl --location --silent --user-agent 'github/kiss-community outdated tracker' repology.org/api/v1/project/$package \
+            # remap weird package names
+            repology_package=$(
+              case $package in
+                act) echo "act-run-github-actions" ;;
+                *) echo $package ;;
+              esac
+            )
+            latest=$(curl --location --silent --user-agent 'github/kiss-community outdated tracker' repology.org/api/v1/project/$repology_package \
               jq -r  ".[] | select(.visiblename == \"$package\") | .version" \
               | sort -u \
               | tail -n1)
