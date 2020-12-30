@@ -1,0 +1,39 @@
+name: check outdated
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build_binaries:
+    runs-on: ubuntu-20.04
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v2
+
+      - name: find outdated binaries
+        id: find-outdated
+        run: |
+          touch outdated
+          for versionpath in */version; do
+            package=$(basename $(dirname "$changed_file"))
+            version=$(awk '{print $1}' $versionpath)
+            latest=$(curl --silent --user-agent='github/kiss-community outdated tracker' repology.org/api/v1/project/$package \
+              jq -r  ".[] | select(.visiblename == \"$package\") | .version" \
+              | sort -u \
+              | tail -n1)
+            if [[ "$version" != "$latest" ]]; then
+              echo "- [ ] $package $version $latest" >> outdated
+            fi
+          done
+          echo "::set-output name=content::$(cat outdated)"
+
+      - uses: JasonEtco/create-an-issue@v2
+        id: create-issue
+        with:
+          update_existing: true
+          filename: .github/outdated.md
+        env:
+          CONTENT: ${{ steps.find-outdated.outputs.content }}
