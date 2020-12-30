@@ -18,7 +18,7 @@ jobs:
         run: |
           touch outdated
           for versionpath in */version; do
-            package=$(basename $(dirname "$changed_file"))
+            package=$(basename $(dirname "$versionpath"))
             version=$(awk '{print $1}' $versionpath)
             latest=$(curl --location --silent --user-agent 'github/kiss-community outdated tracker' repology.org/api/v1/project/$package \
               jq -r  ".[] | select(.visiblename == \"$package\") | .version" \
