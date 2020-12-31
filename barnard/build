@@ -1,8 +1,7 @@
-#!/bin/sh -e
+#!/bin/sh
 
-cd barnard-c9876db24a6b714bedc8bcc69aae71d492c77fc9
 export GOPATH=$PWD/go
 go get -v .
-go build -v -trimpath -modcacherw main.go
+go build -v -trimpath ./*.go
 install -Dm755 -t "$1"/usr/bin barnard extras/barnard-sound.sh
 install -Dm644 -t "$1"/usr/share/doc/barnard LICENSE README.md
