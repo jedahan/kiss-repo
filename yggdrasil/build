@@ -1,0 +1,4 @@
+#!/bin/sh -e
+
+PKGVER=0.3.15 ./build
+install -Dm755 -t "$1"/usr/bin yggdrasil yggdrasilctl
