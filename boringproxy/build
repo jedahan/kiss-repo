@@ -1,0 +1,8 @@
+#!/bin/sh -e
+
+export GOPATH=$PWD/go
+rice embed-go
+CGO_ENABLED=0 go build -v -modcacherw -trimpath
+install -Dm755 -t "$1"/usr/bin boringproxy
+install -Dm644 -t "$1"/usr/share/doc/boringproxy LICENSE README.md
+install -Dm644 -t "$1"/usr/libexec/boringproxy scripts/tunnel.sh
