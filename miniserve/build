@@ -1,0 +1,4 @@
+#!/bin/sh -e
+
+cargo install --no-track --root "$1"/usr --path .
+install -Dm644 -t "$1"/usr/share/doc/miniserve CHANGELOG.md LICENSE README.md
