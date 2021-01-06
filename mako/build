@@ -1,0 +1,14 @@
+#!/bin/sh -e
+
+cd mako-6d743d272e277c74246642f14b5ba2a8fc202919
+
+meson build/ \
+  --prefix /usr \
+  -Dzsh-completions=true \
+  -Dsd-bus-provider=basu \
+  -Dsystemd=disabled
+
+ninja -C build
+
+DESTDIR="$1" ninja -C build install
+install -Dm644 -t "$1"/usr/share/mako/ LICENSE

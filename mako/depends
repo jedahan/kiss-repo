@@ -1,0 +1,9 @@
+basu
+cairo
+gdk-pixbuf
+jq make
+meson make
+pango
+scdoc make
+wayland
+wayland-protocols make
