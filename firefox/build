@@ -1,6 +1,8 @@
 #!/bin/sh -e
 
-patch -p1 < no-gtk2.patch
+for patch in *.patch; do
+    patch -p1 < "$patch"
+done
 
 # Remove libc header which conflicts with 7 or so Linux
 # kernel headers. See: https://github.com/kisslinux/repo/issues/207
@@ -46,7 +48,7 @@ export MOZ_X11=0
 ac_add_options --prefix=/usr
 ac_add_options --libdir=/usr/lib
 ac_add_options --enable-official-branding
-ac_add_options --enable-optimize="$CFLAGS -w"
+ac_add_options --enable-optimize
 ac_add_options --enable-install-strip
 ac_add_options --enable-strip
 ac_add_options --enable-rust-simd

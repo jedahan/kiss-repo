@@ -12,6 +12,7 @@ freetype-harfbuzz
 fribidi
 gdk-pixbuf
 glib
+gtar          make
 gtk+3
 libICE
 libSM
@@ -32,6 +33,7 @@ libdrm
 libepoxy
 libffi
 libjpeg-turbo
+libnotify     make
 libpng
 libvpx
 libxcb
