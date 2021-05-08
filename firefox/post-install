@@ -1,4 +1,0 @@
-#!/bin/sh -e
-
-kiss search hicolor-icon-theme || \
-  echo Install the 'hicolor-icon-theme' package if no other icon themes are installed.
