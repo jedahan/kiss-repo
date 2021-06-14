@@ -1,5 +1,5 @@
 #!/bin/sh -e
 
-cargo install --no-track --root "$1"/usr --path tiny \
+cargo install --no-track --root "$1"/usr --path crates/tiny \
   --features=desktop-notifications
 install -Dm644 -t "$1"/usr/share/doc/tiny CHANGELOG.md LICENSE README.md
