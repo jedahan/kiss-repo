@@ -1,0 +1,21 @@
+#!/bin/sh -e
+
+export DESTDIR="$1"
+
+cmake -B build \
+    -DCMAKE_INSTALL_PREFIX=/usr \
+    -DCMAKE_BUILD_TYPE=Release \
+    -DCOMPILER_RT_INCLUDE_TESTS=OFF \
+    -DCOMPILER_RT_BUILD_BUILTINS=OFF \
+    -DCOMPILER_RT_BUILD_CRT=OFF \
+    -DCOMPILER_RT_BUILD_LIBFUZZER=OFF \
+    -DCOMPILER_RT_BUILD_PROFILE=ON \
+    -DCOMPILER_RT_BUILD_SANITIZERS=ON \
+    -DCOMPILER_RT_BUILD_XRAY=OFF \
+    -Wno-dev
+
+cmake --build   build
+cmake --install build
+
+install -d "$1/usr/lib/clang/$2/lib"
+mv "$1/usr/lib/linux" "$1/usr/lib/clang/$2/lib"
