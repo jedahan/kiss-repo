@@ -4,7 +4,6 @@ bzip2
 cairo
 cbindgen          make
 clang             make
-compiler-rt       make
 expat
 ffmpeg
 fontconfig
@@ -12,18 +11,17 @@ freetype-harfbuzz
 fribidi
 gdk-pixbuf
 glib
+gtk+3
 libdrm
 libepoxy
 libffi
 libjpeg-turbo
 libpng
 libvpx
-lld               make
 llvm              make
 m4                make
 mesa
 nasm              make
-nodejs            make
 pango
 perl              make
 pixman
