@@ -3,4 +3,4 @@
 
 cd "$KISS_ROOT/var/db/kiss/installed"
 
-kiss s * | while read -r path; do echo "${path##*/}"; done | uniq -u
+kiss search * | while read -r pkg_path; do echo "${pkg_path##*/}"; done | uniq -u
