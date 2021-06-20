@@ -3,8 +3,5 @@ fontconfig
 freetype-harfbuzz
 fribidi
 glib
-gobject-introspection make
-libXft
-libXrender
 meson   make
 pkgconf make
