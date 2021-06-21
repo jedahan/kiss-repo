@@ -4,7 +4,7 @@ sed -ie '/prog_a2x = find_program/,$d' meson.build
 
 meson --prefix /usr \
   -Dwindows=wayland \
-  -Dfreeimage=enabled \
+  -Dfreeimage=disabled \
   -Dtests=disabled \
   -Dlibrsvg=disabled . build
 
