@@ -5,6 +5,7 @@ sed -ie '/prog_a2x = find_program/,$d' meson.build
 meson --prefix /usr \
   -Dwindows=wayland \
   -Dfreeimage=enabled \
+  -Dtests=disabled \
   -Dlibrsvg=disabled . build
 
 ninja -C build
