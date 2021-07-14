@@ -1,5 +1,5 @@
 #!/bin/sh -e
 
+mkdir -p "$1/etc/kiss/hooks"
 mkdir -p "$1/etc/profile.d"
 echo 'export KISS_HOOK=/etc/kiss/hooks' > "$1/etc/profile.d/kiss-hooks"
-touch "$1/etc/kiss/hooks"
