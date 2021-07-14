@@ -1,0 +1,4 @@
+#!/bin/sh -e
+
+cc -o fileweight fileweight.c
+install -Dm755 -t "$1/usr/bin" fileweight
