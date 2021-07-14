@@ -1,5 +1,5 @@
 #!/bin/sh -e
 
-GOPATH=$PWD/go go build -v -modcacherw -ldflags "-s -w -X 'main.version=0.4.2'"
+go build -v -modcacherw -ldflags "-s -w -X 'main.version=0.4.2'"
 install -Dm755 -t "$1"/usr/bin antidot
 install -Dm644 -t "$1"/usr/share/doc/antidot CHANGELOG.md LICENSE README.md

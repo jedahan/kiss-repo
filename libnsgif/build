@@ -1,17 +1,9 @@
 #!/bin/sh -e
 
-ls -l
-
-ls -l ..
-
-make \
-  INCLUDEDIR=include \
-  LIBDIR=lib PREFIX=/usr \
-  COMPONENT_TYPE="lib-shared"
-
-make \
+export \
   INCLUDEDIR=include \
   LIBDIR=lib \
-  PREFIX=/usr \
-  DESTDIR="$1" \
-  install
+  COMPONENT_TYPE="lib-shared"
+
+make
+make install
