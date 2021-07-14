@@ -1,3 +1,4 @@
 #!/bin/sh -e
 
-install -Dm755 -t "$1/etc/kiss/hooks" remove-man-pages
+install -Dm755 -t "$1/etc/kiss/hooks/remove-man-pages" post-build
+install -Dm755 -t "$1/etc/profile.d" kiss-hooks_remove-man-pages.sh

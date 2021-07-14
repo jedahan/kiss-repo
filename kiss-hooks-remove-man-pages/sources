@@ -1,1 +1,2 @@
-files/remove-man-pages
+files/kiss-hooks_remove-man-pages.sh
+files/post-build

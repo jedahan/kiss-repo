@@ -5,8 +5,8 @@ for _hook_path in ${_kiss_hooks_path}; do set +f
   for _hook in "$_hook_path/"*; do
     [ -e "$_hook" ] || [ -L "$_hook" ] || continue
     case ${_hook##*/} in
-      $TYPE|*.sh)
-        TYPE=${TYPE} PKG=${PKG} DEST=${DEST} . "$_hook"
+      $1|*.sh)
+        ./"$_hook" "$1" "$2" "$3"
         ;;
     esac
   done

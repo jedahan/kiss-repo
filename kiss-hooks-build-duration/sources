@@ -1,1 +1,3 @@
-files/build-duration.sh
+files/kiss-hooks_build-duration.sh
+files/pre-build
+files/post-build

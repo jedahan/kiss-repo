@@ -1,0 +1,3 @@
+#!/bin/sh -e
+: "${3:?3 is unset}"
+rm -rf "$3/usr/share/man"

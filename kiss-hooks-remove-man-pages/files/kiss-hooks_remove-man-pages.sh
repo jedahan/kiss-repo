@@ -1,0 +1,1 @@
+export KISS_HOOKS_PATH=/etc/hooks/kiss/remove-man-pages:$PATH

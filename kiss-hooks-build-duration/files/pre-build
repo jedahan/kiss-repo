@@ -1,0 +1,2 @@
+#!/bin/sh -e
+ IFS=. read -r _start _ < /proc/uptime
