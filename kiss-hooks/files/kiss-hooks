@@ -1,5 +1,9 @@
-#!/bin/sh
-for hook in /etc/kiss/hooks/*.sh; do
-    [ -e "$hook" ] || [ -L "$hook" ] || continue
-    TYPE=${TYPE} PKG=${PKG} DEST=${DEST} . "$hook"
+#!/bin/bash
+IFS=:
+for _hook_path in ${KISS_HOOKS_PATH:-/etc/kiss/hooks}; do set +f
+  for _hook in "$_hook_path/"*sh; do
+    [ -e "$_hook" ] || [ -L "$_hook" ] || continue
+    TYPE=${TYPE} PKG=${PKG} DEST=${DEST} . "$_hook"
+  done
 done
+unset IFS

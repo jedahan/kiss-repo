@@ -1,0 +1,3 @@
+Feel free to overwrite the :-delimited variable KISS_HOOKS_PATH to whatever directories you want
+
+Defaults to /etc/kiss/hooks:/usr/share/kiss/hooks

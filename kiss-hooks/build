@@ -1,4 +1,4 @@
 #!/bin/sh -e
 
-install -Dm755 -t "$1/etc/kiss/hooks" kiss-hooks
+install -Dm755 -t "$1/etc/kiss/hooks" kiss-hooks readme
 install -Dm644 -t "$1/etc/profile.d" kiss-hooks.sh
