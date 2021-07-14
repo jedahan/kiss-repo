@@ -1,0 +1,5 @@
+#!/bin/sh
+for hook in *.sh; do
+    [ -e "$hook" ] || [ -L "$hook" ] || continue
+    TYPE=${TYPE} PKG=${PKG} DEST=${DEST} . "$hook"
+done
