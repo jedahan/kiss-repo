@@ -1,1 +1,1 @@
-export KISS_HOOK=build-duration:$KISS_HOOK
+export KISS_HOOK=/var/db/kiss/hooks/build-duration:$KISS_HOOK

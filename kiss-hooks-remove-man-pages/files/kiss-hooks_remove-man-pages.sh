@@ -1,1 +1,1 @@
-export KISS_HOOK=remove-man-pages:$KISS_HOOK
+export KISS_HOOK=/var/db/kiss/hooks/remove-man-pages:$KISS_HOOK
