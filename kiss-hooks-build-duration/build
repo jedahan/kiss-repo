@@ -1,4 +1,4 @@
 #!/bin/sh -e
 
-install -Dm755 -t "$1/etc/kiss/hooks/build-duration" pre-build post-build
+install -Dm755 -t "$1/var/db/kiss/hooks" build-duration
 install -Dm755 -t "$1/etc/profile.d" kiss-hooks_build-duration.sh

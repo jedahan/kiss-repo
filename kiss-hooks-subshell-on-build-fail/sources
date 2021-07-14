@@ -1,2 +1,2 @@
 files/kiss-hooks_subshell-on-build-fail.sh
-files/build-fail
+files/subshell-on-build-fail

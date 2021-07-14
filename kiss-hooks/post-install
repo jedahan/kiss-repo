@@ -1,5 +1,0 @@
-kiss-hooks sets KISS_HOOKS to /etc/kiss/hooks
-
-This overrides the default hook directory, which means default hooks will no longer run.
-
-Please see kiss help package-manager or https://kisslinux.xyz/package-manager#6.0 for more info.

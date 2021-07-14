@@ -1,1 +1,1 @@
-export KISS_HOOKS_PATH=/etc/hooks/kiss/subshell-on-build-fail:$PATH
+export KISS_HOOK=subshell-on-build-fail:$KISS_HOOK

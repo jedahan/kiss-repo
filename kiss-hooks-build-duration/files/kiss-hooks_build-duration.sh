@@ -1,1 +1,1 @@
-export KISS_HOOK=/etc/kiss/hooks/build-duration
+export KISS_HOOK=build-duration:$KISS_HOOK

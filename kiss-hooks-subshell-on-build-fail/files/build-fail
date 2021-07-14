@@ -1,4 +1,0 @@
-#!/bin/sh -e
-
-echo "$2" "Dropped into subshell"
-sh >/dev/tty

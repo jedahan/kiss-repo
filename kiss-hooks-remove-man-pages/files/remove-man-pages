@@ -1,0 +1,7 @@
+#!/bin/sh -e
+case $1 in
+post-build)
+    : "${3:?3 is unset}"
+    rm -rf "$3/usr/share/man"
+    ;;
+esac
