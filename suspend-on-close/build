@@ -1,4 +1,4 @@
 #!/bin/sh -e
 
-install -Dm755 -t "$1/etc/acpi/events" lid
-install -Dm755 -t "$1/etc/acpi" suspend_on_close.sh
+#install -Dm644 -t "$1/etc" acpi.map acpid.conf
+install -Dm755 -t "$1/etc/acpi/LID" 00000080
