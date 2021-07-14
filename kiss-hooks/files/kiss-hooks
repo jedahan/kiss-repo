@@ -2,7 +2,7 @@
 _kiss_hooks_path=${KISS_HOOKS_PATH:-'/etc/kiss/hooks:/usr/share/kiss/hooks'}
 IFS=:
 for _hook_path in ${_kiss_hooks_path}; do set +f
-  for _hook in "$_hook_path/"*sh; do
+  for _hook in "$_hook_path/"*.sh; do
     [ -e "$_hook" ] || [ -L "$_hook" ] || continue
     TYPE=${TYPE} PKG=${PKG} DEST=${DEST} . "$_hook"
   done
