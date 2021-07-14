@@ -1,3 +1,21 @@
-Feel free to overwrite the :-delimited variable KISS_HOOKS_PATH to whatever directories you want
+# kiss-hooks
 
-Defaults to /etc/kiss/hooks:/usr/share/kiss/hooks
+This is a wrapper script that makes it easy to add or remove hooks
+
+It looks for directories in KISS_HOOKS_PATH, default /etc/kiss/hooks:/usr/share/kiss/hooks
+
+For each directory, it will source
+
+  * any file ending in .sh for all hooks (KISS_HOOK style)
+  * any file with the name $TYPE for all hook types (git style)
+
+Known TYPEs as of kiss 5.4.11:
+
+  post-package
+  pre-extract
+  pre-build
+  build-fail
+  post-build
+  pre-remove
+  pre-install
+  post-install
