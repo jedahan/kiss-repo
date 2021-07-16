@@ -29,8 +29,9 @@ jobs:
             )
             latest=$(curl --location --silent --user-agent 'github/kiss-community outdated tracker' repology.org/api/v1/project/$repology_package \
               jq -r  ".[] | select(.visiblename == \"$package\") | .version" \
-              | sort -u \
-              | tail -n1)
+              | grep --invert-match '[a-zA-Z]' \
+              | sort --version-sort \
+              | tail -n 1)
             if [[ "$version" != "$latest" ]]; then
               echo "- [ ] $package $version $latest" >> outdated
             fi
