@@ -6,5 +6,5 @@ cmake . \
     -DENABLE_TESTS=ON
 
 make
-make DESTDIR="$1" PREFIX='/usr' install
+make install
 install -Dm644 -t "$1"/usr/share/doc/neix README.md

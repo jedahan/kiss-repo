@@ -1,6 +1,5 @@
 #!/bin/sh
 
-export GOPATH=$PWD/go
 go get -v .
 go build -v -trimpath ./*.go
 install -Dm755 -t "$1"/usr/bin barnard extras/barnard-sound.sh
