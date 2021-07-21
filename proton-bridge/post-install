@@ -1,3 +1,9 @@
+#!/bin/sh -e
+
+cat <<EOF
+
 make sure you have gpg2 and pass setup
 
 try following https://iptq.io/setup/command-line-email-with-aerc/
+
+EOF
