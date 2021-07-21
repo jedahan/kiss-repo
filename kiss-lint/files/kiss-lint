@@ -33,7 +33,8 @@ echo $repository_paths | while IFS=: read -r repository_path; do
 
     test -f $sources && {
       if [[ -f $checksums ]]; then
-        if [[ "$(wc -l < $checksums)" != "$(wc -l < $sources)" ]]; then
+        sources_lines=$(grep --invert-match --extended-regexp '^#|^$' $sources | wc -l)
+        if [[ "$sources_lines" != "$(wc -l < $checksums)" ]]; then
           error "$checksums: does not match number of sources"
         fi
         test -x $checksums && error "$_: file is executable"
