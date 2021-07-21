@@ -31,15 +31,24 @@ echo $repository_paths | while IFS=: read -r repository_path; do
       error "$_: file not found"
     fi
 
-    test -f $sources && {
+    if [[ -f $postinstall ]]; then
+      test -x $postinstall || error "$_: file is not executable"
+    fi
+
+    if [[ -f $preremove ]]; then
+      test -x $preremove || error "$_: file is not executable"
+    fi
+
+    if [[ -f $sources ]]; then
       if [[ -f $checksums ]]; then
         sources_lines=$(grep --invert-match --extended-regexp '^#|^$' $sources | wc -l)
         if [[ "$sources_lines" != "$(wc -l < $checksums)" ]]; then
           error "$checksums: does not match number of sources"
         fi
+        grep --quiet --extended-regexp '^#|^$' $checksums && error "$_: found comments or blank lines"
         test -x $checksums && error "$_: file is executable"
       fi
-    }
+    fi
   done
 done
 
