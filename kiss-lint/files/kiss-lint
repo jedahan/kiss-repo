@@ -18,7 +18,13 @@ echo $repository_paths | while IFS=: read -r repository_path; do
     postinstall=$package_path/post-install
 
     test -x $version && error "$_: file is executable"
-    test -x $build || error "$_: file is not executable"
+
+    if [[ -f $build ]]; then
+      test -x $build || error "$_: file is not executable"
+    else
+      error "$_: file not found"
+    fi
+
     test -f $sources && {
       if [[ -f $checksums ]]; then
         if [[ "$(wc -l < $checksums)" != "$(wc -l < $sources)" ]]; then
