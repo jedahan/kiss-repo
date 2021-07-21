@@ -1,9 +1,15 @@
 #!env bash
 
 repository_paths=${1:-$KISS_PATH}
+error_file='.kiss-lint-error'
+
+cleanup() {
+    test -f $error_file && rm -f $_
+}
+trap cleanup EXIT
 
 error() {
-  declare -g errors=true
+  touch $error_file
   echo $@ >&2
 }
 
@@ -30,9 +36,10 @@ echo $repository_paths | while IFS=: read -r repository_path; do
         if [[ "$(wc -l < $checksums)" != "$(wc -l < $sources)" ]]; then
           error "$checksums: does not match number of sources"
         fi
+        test -x $checksums && error "$_: file is executable"
       fi
     }
   done
 done
 
-test $errors
+test ! -f .error
