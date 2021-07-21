@@ -1,0 +1,32 @@
+#!env bash
+
+repository_paths=${1:-$KISS_PATH}
+
+error() {
+  declare -g errors=true
+  echo $@ >&2
+}
+
+echo $repository_paths | while IFS=: read -r repository_path; do
+  ls $repository_path/*/version | while read -r version _; do
+    package_path=$(dirname $version)
+    build=$package_path/build
+    checksums=$package_path/checksums
+    depends=$package_path/depends
+    sources=$package_path/sources
+    preremove=$package_path/pre-remove
+    postinstall=$package_path/post-install
+
+    test -x $version && error "$_: file is executable"
+    test -x $build || error "$_: file is not executable"
+    test -f $sources && {
+      if [[ -f $checksums ]]; then
+        if [[ "$(wc -l < $checksums)" != "$(wc -l < $sources)" ]]; then
+          error "$checksums: does not match number of sources"
+        fi
+      fi
+    }
+  done
+done
+
+test $errors
