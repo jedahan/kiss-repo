@@ -1,11 +1,15 @@
-#!/bin/sh -e
+#!/bin/bash -e
+
+_start_=${TMPDIR:-/tmp}/kiss-hooks-build-duration
 
 case $1 in
 pre-build)
-    IFS=. read -r _start _ </proc/uptime
+    cat /proc/uptime > $_start
     ;;
 post-build)
-    IFS=. read -r _end _ </proc/uptime
+    IFS=. read -r _end _ < /proc/uptime
+    IFS=. read -r _start _ < $_start_
+    rm -f $_start
     (
         _s=$((_end - _start))
         _h=$((_s / 60 / 60 % 24))
