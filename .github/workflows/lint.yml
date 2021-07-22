@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  check_outdated:
+  lint_packages:
     runs-on: ubuntu-20.04
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -17,17 +17,9 @@ jobs:
         uses: actions/checkout@v2
 
       - name: find packages with bad lints
-        id: find-outdated
+        id: lint-packages
         run: |
-          printf "::set-output name=errors::%s" \
-            $(kiss-lint/files/kiss-lint . 2>&1 \
-              | grep --invert-match 'warning:' \
-              | sed -e 's|.* error: ./|- [ ]|')
-
-      - uses: JasonEtco/create-an-issue@v2
-        id: create-issue
-        with:
-          update_existing: true
-          filename: .github/lint.md
-        env:
-          CONTENT: ${{ steps.find-outdated.outputs.errors }}
+          /usr/bin/curl --silent --location --output kiss-lint.bash \
+            https://raw.githubusercontent.com/jedahan/kiss-repo/5f4fd3b67a6cf930857fb2a5fca550e84b5eaa15/kiss-lint/files/kiss-lint
+          output=$(/usr/bin/bash kiss-lint.bash . 2>&1 | sed -e 's|^.*error: |::error::|' -e 's|^.*warning: |::warning::|')
+          echo $output && test -z $output
