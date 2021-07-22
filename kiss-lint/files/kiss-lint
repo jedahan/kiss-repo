@@ -8,9 +8,13 @@ cleanup() {
 }
 trap cleanup EXIT
 
+warn() {
+  echo [kiss-lint] warning: $@ >&2
+}
+
 error() {
   touch $error_file
-  echo $@ >&2
+  echo [kiss-lint] error: $@ >&2
 }
 
 echo $repository_paths | while IFS=: read -r repository_path; do
@@ -43,7 +47,7 @@ echo $repository_paths | while IFS=: read -r repository_path; do
       if [[ -f $checksums ]]; then
         sources_lines=$(grep --invert-match --extended-regexp '^#|^$' $sources | wc -l)
         if [[ "$sources_lines" != "$(wc -l < $checksums)" ]]; then
-          error "$checksums: does not match number of sources"
+          warn "$checksums: does not match number of sources"
         fi
         grep --quiet --extended-regexp '^#|^$' $checksums && error "$_: found comments or blank lines"
         test -x $checksums && error "$_: file is executable"
@@ -52,4 +56,4 @@ echo $repository_paths | while IFS=: read -r repository_path; do
   done
 done
 
-test ! -f .error
+test ! -f $error_file
