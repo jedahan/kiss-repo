@@ -20,6 +20,6 @@ jobs:
           KISS_PATH: ${{ env.GITHUB_WORKSPACE }}
         run: |
           output=$(/usr/bin/curl --silent --location \
-            https://raw.githubusercontent.com/jedahan/kiss-repo/5f4fd3b67a6cf930857fb2a5fca550e84b5eaa15/kiss-lint/files/kiss-lint \
+            https://raw.githubusercontent.com/jedahan/kiss-repo/1370e9d22452e0646fcfa777c54747848038a0c5/kiss-lint/files/kiss-lint \
             | /usr/bin/bash 2>&1 | sed -e 's|^.*error: |::error::|' -e 's|^.*warning: |::warning::|')
           echo $output && test -z "$output"
