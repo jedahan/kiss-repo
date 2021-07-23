@@ -5,4 +5,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: jedahan/github-actions-kiss-lint@1.0.0-chi
+      - uses: jedahan/github-actions-kiss-lint@1.0.0-psi
