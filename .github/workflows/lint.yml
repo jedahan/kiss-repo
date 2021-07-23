@@ -1,25 +1,8 @@
-name: lint packages
-
-on:
-  pull_request:
-    branches:
-      - main
-  workflow_dispatch:
+on: [pull_request, workflow_dispatch]
 
 jobs:
-  lint_packages:
-    runs-on: ubuntu-20.04
-
+  lint:
+    runs-on: ubuntu-latest
     steps:
-      - name: checkout code
-        uses: actions/checkout@v2
-
-      - name: find packages with bad lints
-        id: lint-packages
-        env:
-          KISS_PATH: ${{ env.GITHUB_WORKSPACE }}
-        run: |
-          output=$(/usr/bin/curl --silent --location \
-            https://raw.githubusercontent.com/jedahan/kiss-repo/1370e9d22452e0646fcfa777c54747848038a0c5/kiss-lint/files/kiss-lint \
-            | /usr/bin/bash 2>&1 | sed -e 's|^.*error: |::error::|' -e 's|^.*warning: |::warning::|')
-          echo $output && test -z "$output"
+      - uses: actions/checkout@v2
+      - uses: jedahan/github-actions-kiss-lint@1.0.0-epsilon
