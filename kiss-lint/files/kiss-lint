@@ -1,6 +1,6 @@
 #!env bash
 
-repository_paths=${1:-$KISS_PATH}
+[[ -p /dev/stdin ]] && repository_paths=${KISS_PATH:-.} || repository_paths=${1:-$KISS_PATH}
 error_file='.kiss-lint-error'
 
 cleanup() {
