@@ -1,33 +1,8 @@
-name: lint packages
-
-on:
-  pull_request:
-    branches:
-      - main
-  workflow_dispatch:
+on: [pull_request, workflow_dispatch]
 
 jobs:
-  check_outdated:
-    runs-on: ubuntu-20.04
-    env:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
+  lint:
+    runs-on: ubuntu-latest
     steps:
-      - name: checkout code
-        uses: actions/checkout@v2
-
-      - name: find packages with bad lints
-        id: find-outdated
-        run: |
-          printf "::set-output name=errors::%s" \
-            $(kiss-lint/files/kiss-lint . 2>&1 \
-              | grep --invert-match 'warning:' \
-              | sed -e 's|.* error: ./|- [ ]|')
-
-      - uses: JasonEtco/create-an-issue@v2
-        id: create-issue
-        with:
-          update_existing: true
-          filename: .github/lint.md
-        env:
-          CONTENT: ${{ steps.find-outdated.outputs.errors }}
+      - uses: actions/checkout@v2
+      - uses: jedahan/github-actions-kiss-lint@1.0.0-sim
