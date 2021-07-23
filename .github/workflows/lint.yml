@@ -19,5 +19,5 @@ jobs:
         run: |
           output=$(/usr/bin/curl --silent --location \
             https://raw.githubusercontent.com/jedahan/kiss-repo/5f4fd3b67a6cf930857fb2a5fca550e84b5eaa15/kiss-lint/files/kiss-lint \
-            | /usr/bin/bash 2>&1 | sed -e 's|^.*error: |::error::|' -e 's|^.*warning: |::warning::|')
+            | /usr/bin/bash $GITHUB_WORKSPACE 2>&1 | sed -e 's|^.*error: |::error::|' -e 's|^.*warning: |::warning::|')
           echo $output && test -z "$output"
