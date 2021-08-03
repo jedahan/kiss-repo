@@ -45,7 +45,7 @@ echo $repository_paths | while IFS=: read -r repository_path; do
 
     if [[ -f $sources ]]; then
       if [[ -f $checksums ]]; then
-        sources_lines=$(grep --invert-match --extended-regexp '^#|^$' $sources | wc -l)
+        sources_lines=$(grep --invert-match --extended-regexp '^#|^$|^git\+' $sources | wc -l)
         if [[ "$sources_lines" != "$(wc -l < $checksums)" ]]; then
           warn $checksums "does not match number of sources"
         fi
