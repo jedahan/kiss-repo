@@ -4,11 +4,11 @@
 error_file='.kiss-lint-error'
 
 cleanup() {
-    test -f $error_file && rm -f $_
+    test -f $error_file && rm -f $error_file
 }
 trap cleanup EXIT
 
-warn() {
+warning() {
   echo warning $1 "$2" >&2
 }
 
@@ -27,30 +27,30 @@ echo $repository_paths | while IFS=: read -r repository_path; do
     preremove=$package_path/pre-remove
     postinstall=$package_path/post-install
 
-    test -x $version && error $_ "file is executable"
+    test -x $version && error $version "file is executable"
 
     if [[ -f $build ]]; then
-      test -x $build || error $_ "file is not executable"
+      test -x $build || error $build "file is not executable"
     else
-      error "$_: file not found"
+      error $build "file not found"
     fi
 
     if [[ -f $postinstall ]]; then
-      test -x $postinstall || error $_ "file is not executable"
+      test -x $postinstall || error $postinstall "file is not executable"
     fi
 
     if [[ -f $preremove ]]; then
-      test -x $preremove || error $_ "file is not executable"
+      test -x $preremove || error $preremove "file is not executable"
     fi
 
     if [[ -f $sources ]]; then
       if [[ -f $checksums ]]; then
         sources_lines=$(grep --invert-match --extended-regexp '^#|^$|^git\+' $sources | wc -l)
         if [[ "$sources_lines" != "$(wc -l < $checksums)" ]]; then
-          warn $checksums "does not match number of sources"
+          warning $checksums "does not match number of sources"
         fi
-        grep --quiet --extended-regexp '^#|^$' $checksums && error $_ "found comments or blank lines"
-        test -x $checksums && error $_ "file is executable"
+        grep --quiet --extended-regexp '^#|^$' $checksums && error $checksums "found comments or blank lines"
+        test -x $checksums && error $checksums "file is executable"
       fi
     fi
   done
