@@ -1,6 +1,5 @@
 #!/bin/sh -e
 
 case $1 in
-  pre-update) pre_hash=$(git rev-parse HEAD) ;;
-  post-update) git log --oneline HEAD...$pre_hash ;;
+  post-update) git --no-pager log --oneline HEAD...ORIG_HEAD ;;
 esac

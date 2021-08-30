@@ -8,7 +8,7 @@ pre-build)
     ;;
 post-build)
     IFS=. read -r _end _ < /proc/uptime
-    IFS=. read -r _start _ < $_start_
+    IFS=. read -r _start _ < $_start
     rm -f $_start
     (
         _s=$((_end - _start))
